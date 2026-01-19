@@ -1,9 +1,9 @@
-var Ee = Object.defineProperty;
-var Ce = (c, e, t) => e in c ? Ee(c, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : c[e] = t;
-var f = (c, e, t) => Ce(c, typeof e != "symbol" ? e + "" : e, t);
-import Se, { forwardRef as Pe, createElement as ve, useMemo as Me, useRef as te, useState as re, useEffect as Z, useCallback as q } from "react";
+var Ce = Object.defineProperty;
+var Se = (c, e, t) => e in c ? Ce(c, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : c[e] = t;
+var d = (c, e, t) => Se(c, typeof e != "symbol" ? e + "" : e, t);
+import Me, { forwardRef as Oe, createElement as pe, useMemo as Re, useRef as ie, useState as se, useEffect as K, useCallback as J } from "react";
 import * as a from "three";
-var le = { exports: {} }, se = {};
+var ue = { exports: {} }, oe = {};
 /**
  * @license React
  * react-jsx-runtime.production.js
@@ -13,10 +13,10 @@ var le = { exports: {} }, se = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var ge;
-function Re() {
-  if (ge) return se;
-  ge = 1;
+var ye;
+function De() {
+  if (ye) return oe;
+  ye = 1;
   var c = Symbol.for("react.transitional.element"), e = Symbol.for("react.fragment");
   function t(n, i, s) {
     var o = null;
@@ -33,9 +33,9 @@ function Re() {
       props: s
     };
   }
-  return se.Fragment = e, se.jsx = t, se.jsxs = t, se;
+  return oe.Fragment = e, oe.jsx = t, oe.jsxs = t, oe;
 }
-var oe = {};
+var ae = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -45,26 +45,26 @@ var oe = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var ye;
-function De() {
-  return ye || (ye = 1, process.env.NODE_ENV !== "production" && (function() {
+var xe;
+function Te() {
+  return xe || (xe = 1, process.env.NODE_ENV !== "production" && (function() {
     function c(r) {
       if (r == null) return null;
       if (typeof r == "function")
         return r.$$typeof === Y ? null : r.displayName || r.name || null;
       if (typeof r == "string") return r;
       switch (r) {
-        case T:
+        case R:
           return "Fragment";
-        case C:
+        case G:
           return "Profiler";
-        case N:
-          return "StrictMode";
-        case V:
-          return "Suspense";
         case A:
+          return "StrictMode";
+        case F:
+          return "Suspense";
+        case W:
           return "SuspenseList";
-        case B:
+        case I:
           return "Activity";
       }
       if (typeof r == "object")
@@ -73,19 +73,19 @@ function De() {
         ), r.$$typeof) {
           case O:
             return "Portal";
-          case S:
+          case v:
             return r.displayName || "Context";
-          case w:
-            return (r._context.displayName || "Context") + ".Consumer";
-          case k:
-            var d = r.render;
-            return r = r.displayName, r || (r = d.displayName || d.name || "", r = r !== "" ? "ForwardRef(" + r + ")" : "ForwardRef"), r;
           case E:
-            return d = r.displayName || null, d !== null ? d : c(r.type) || "Memo";
-          case _:
-            d = r._payload, r = r._init;
+            return (r._context.displayName || "Context") + ".Consumer";
+          case N:
+            var f = r.render;
+            return r = r.displayName, r || (r = f.displayName || f.name || "", r = r !== "" ? "ForwardRef(" + r + ")" : "ForwardRef"), r;
+          case D:
+            return f = r.displayName || null, f !== null ? f : c(r.type) || "Memo";
+          case w:
+            f = r._payload, r = r._init;
             try {
-              return c(r(d));
+              return c(r(f));
             } catch {
             }
         }
@@ -97,50 +97,50 @@ function De() {
     function t(r) {
       try {
         e(r);
-        var d = !1;
+        var f = !1;
       } catch {
-        d = !0;
+        f = !0;
       }
-      if (d) {
-        d = console;
-        var g = d.error, b = typeof Symbol == "function" && Symbol.toStringTag && r[Symbol.toStringTag] || r.constructor.name || "Object";
+      if (f) {
+        f = console;
+        var g = f.error, L = typeof Symbol == "function" && Symbol.toStringTag && r[Symbol.toStringTag] || r.constructor.name || "Object";
         return g.call(
-          d,
+          f,
           "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
-          b
+          L
         ), e(r);
       }
     }
     function n(r) {
-      if (r === T) return "<>";
-      if (typeof r == "object" && r !== null && r.$$typeof === _)
+      if (r === R) return "<>";
+      if (typeof r == "object" && r !== null && r.$$typeof === w)
         return "<...>";
       try {
-        var d = c(r);
-        return d ? "<" + d + ">" : "<...>";
+        var f = c(r);
+        return f ? "<" + f + ">" : "<...>";
       } catch {
         return "<...>";
       }
     }
     function i() {
-      var r = H.A;
+      var r = B.A;
       return r === null ? null : r.getOwner();
     }
     function s() {
       return Error("react-stack-top-frame");
     }
     function o(r) {
-      if (U.call(r, "key")) {
-        var d = Object.getOwnPropertyDescriptor(r, "key").get;
-        if (d && d.isReactWarning) return !1;
+      if (V.call(r, "key")) {
+        var f = Object.getOwnPropertyDescriptor(r, "key").get;
+        if (f && f.isReactWarning) return !1;
       }
       return r.key !== void 0;
     }
-    function l(r, d) {
+    function l(r, f) {
       function g() {
-        J || (J = !0, console.error(
+        le || (le = !0, console.error(
           "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
-          d
+          f
         ));
       }
       g.isReactWarning = !0, Object.defineProperty(r, "key", {
@@ -150,19 +150,19 @@ function De() {
     }
     function m() {
       var r = c(this.type);
-      return z[r] || (z[r] = !0, console.error(
+      return ee[r] || (ee[r] = !0, console.error(
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), r = this.props.ref, r !== void 0 ? r : null;
     }
-    function P(r, d, g, b, K, ie) {
-      var L = g.ref;
+    function b(r, f, g, L, Z, re) {
+      var _ = g.ref;
       return r = {
         $$typeof: j,
         type: r,
-        key: d,
+        key: f,
         props: g,
-        _owner: b
-      }, (L !== void 0 ? L : null) !== null ? Object.defineProperty(r, "ref", {
+        _owner: L
+      }, (_ !== void 0 ? _ : null) !== null ? Object.defineProperty(r, "ref", {
         enumerable: !1,
         get: m
       }) : Object.defineProperty(r, "ref", { enumerable: !1, value: null }), r._store = {}, Object.defineProperty(r._store, "validated", {
@@ -179,133 +179,133 @@ function De() {
         configurable: !1,
         enumerable: !1,
         writable: !0,
-        value: K
+        value: Z
       }), Object.defineProperty(r, "_debugTask", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
-        value: ie
+        value: re
       }), Object.freeze && (Object.freeze(r.props), Object.freeze(r)), r;
     }
-    function x(r, d, g, b, K, ie) {
-      var L = d.children;
-      if (L !== void 0)
-        if (b)
-          if ($(L)) {
-            for (b = 0; b < L.length; b++)
-              F(L[b]);
-            Object.freeze && Object.freeze(L);
+    function P(r, f, g, L, Z, re) {
+      var _ = f.children;
+      if (_ !== void 0)
+        if (L)
+          if (Q(_)) {
+            for (L = 0; L < _.length; L++)
+              T(_[L]);
+            Object.freeze && Object.freeze(_);
           } else
             console.error(
               "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
             );
-        else F(L);
-      if (U.call(d, "key")) {
-        L = c(r);
-        var h = Object.keys(d).filter(function(v) {
-          return v !== "key";
+        else T(_);
+      if (V.call(f, "key")) {
+        _ = c(r);
+        var X = Object.keys(f).filter(function(u) {
+          return u !== "key";
         });
-        b = 0 < h.length ? "{key: someKey, " + h.join(": ..., ") + ": ...}" : "{key: someKey}", ce[L + b] || (h = 0 < h.length ? "{" + h.join(": ..., ") + ": ...}" : "{}", console.error(
+        L = 0 < X.length ? "{key: someKey, " + X.join(": ..., ") + ": ...}" : "{key: someKey}", $[_ + L] || (X = 0 < X.length ? "{" + X.join(": ..., ") + ": ...}" : "{}", console.error(
           `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
   <%s key={someKey} {...props} />`,
-          b,
           L,
-          h,
-          L
-        ), ce[L + b] = !0);
+          _,
+          X,
+          _
+        ), $[_ + L] = !0);
       }
-      if (L = null, g !== void 0 && (t(g), L = "" + g), o(d) && (t(d.key), L = "" + d.key), "key" in d) {
+      if (_ = null, g !== void 0 && (t(g), _ = "" + g), o(f) && (t(f.key), _ = "" + f.key), "key" in f) {
         g = {};
-        for (var u in d)
-          u !== "key" && (g[u] = d[u]);
-      } else g = d;
-      return L && l(
+        for (var h in f)
+          h !== "key" && (g[h] = f[h]);
+      } else g = f;
+      return _ && l(
         g,
         typeof r == "function" ? r.displayName || r.name || "Unknown" : r
-      ), P(
+      ), b(
         r,
-        L,
+        _,
         g,
         i(),
-        K,
-        ie
+        Z,
+        re
       );
     }
-    function F(r) {
-      R(r) ? r._store && (r._store.validated = 1) : typeof r == "object" && r !== null && r.$$typeof === _ && (r._payload.status === "fulfilled" ? R(r._payload.value) && r._payload.value._store && (r._payload.value._store.validated = 1) : r._store && (r._store.validated = 1));
+    function T(r) {
+      S(r) ? r._store && (r._store.validated = 1) : typeof r == "object" && r !== null && r.$$typeof === w && (r._payload.status === "fulfilled" ? S(r._payload.value) && r._payload.value._store && (r._payload.value._store.validated = 1) : r._store && (r._store.validated = 1));
     }
-    function R(r) {
+    function S(r) {
       return typeof r == "object" && r !== null && r.$$typeof === j;
     }
-    var D = Se, j = Symbol.for("react.transitional.element"), O = Symbol.for("react.portal"), T = Symbol.for("react.fragment"), N = Symbol.for("react.strict_mode"), C = Symbol.for("react.profiler"), w = Symbol.for("react.consumer"), S = Symbol.for("react.context"), k = Symbol.for("react.forward_ref"), V = Symbol.for("react.suspense"), A = Symbol.for("react.suspense_list"), E = Symbol.for("react.memo"), _ = Symbol.for("react.lazy"), B = Symbol.for("react.activity"), Y = Symbol.for("react.client.reference"), H = D.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, U = Object.prototype.hasOwnProperty, $ = Array.isArray, ne = console.createTask ? console.createTask : function() {
+    var M = Me, j = Symbol.for("react.transitional.element"), O = Symbol.for("react.portal"), R = Symbol.for("react.fragment"), A = Symbol.for("react.strict_mode"), G = Symbol.for("react.profiler"), E = Symbol.for("react.consumer"), v = Symbol.for("react.context"), N = Symbol.for("react.forward_ref"), F = Symbol.for("react.suspense"), W = Symbol.for("react.suspense_list"), D = Symbol.for("react.memo"), w = Symbol.for("react.lazy"), I = Symbol.for("react.activity"), Y = Symbol.for("react.client.reference"), B = M.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, V = Object.prototype.hasOwnProperty, Q = Array.isArray, z = console.createTask ? console.createTask : function() {
       return null;
     };
-    D = {
+    M = {
       react_stack_bottom_frame: function(r) {
         return r();
       }
     };
-    var J, z = {}, X = D.react_stack_bottom_frame.bind(
-      D,
+    var le, ee = {}, U = M.react_stack_bottom_frame.bind(
+      M,
       s
-    )(), W = ne(n(s)), ce = {};
-    oe.Fragment = T, oe.jsx = function(r, d, g) {
-      var b = 1e4 > H.recentlyCreatedOwnerStacks++;
-      return x(
+    )(), q = z(n(s)), $ = {};
+    ae.Fragment = R, ae.jsx = function(r, f, g) {
+      var L = 1e4 > B.recentlyCreatedOwnerStacks++;
+      return P(
         r,
-        d,
+        f,
         g,
         !1,
-        b ? Error("react-stack-top-frame") : X,
-        b ? ne(n(r)) : W
+        L ? Error("react-stack-top-frame") : U,
+        L ? z(n(r)) : q
       );
-    }, oe.jsxs = function(r, d, g) {
-      var b = 1e4 > H.recentlyCreatedOwnerStacks++;
-      return x(
+    }, ae.jsxs = function(r, f, g) {
+      var L = 1e4 > B.recentlyCreatedOwnerStacks++;
+      return P(
         r,
-        d,
+        f,
         g,
         !0,
-        b ? Error("react-stack-top-frame") : X,
-        b ? ne(n(r)) : W
+        L ? Error("react-stack-top-frame") : U,
+        L ? z(n(r)) : q
       );
     };
-  })()), oe;
+  })()), ae;
 }
-var xe;
-function Te() {
-  return xe || (xe = 1, process.env.NODE_ENV === "production" ? le.exports = Re() : le.exports = De()), le.exports;
+var be;
+function ke() {
+  return be || (be = 1, process.env.NODE_ENV === "production" ? ue.exports = De() : ue.exports = Te()), ue.exports;
 }
-var y = Te();
-function Oe(c) {
+var x = ke();
+function Le(c) {
   const e = c.isLineSegments2;
   if (!(c instanceof a.Mesh || c instanceof a.Line || c instanceof a.LineSegments || e))
     return null;
   const t = c.geometry;
   if (!t) return null;
   if (e) {
-    const m = t.getAttribute("instanceStart"), P = t.getAttribute("instanceEnd");
-    if (!m || !P) {
+    const m = t.getAttribute("instanceStart"), b = t.getAttribute("instanceEnd");
+    if (!m || !b) {
       if (!t.getAttribute("position")) return null;
     } else {
-      const x = new a.Box3();
-      let F = !1;
+      const P = new a.Box3();
+      let T = !1;
       c.updateMatrixWorld(!0);
-      const R = (D) => {
-        const j = D.array, O = D.itemSize;
-        for (let T = 0; T < j.length; T += O) {
-          const N = j[T], C = j[T + 1], w = O > 2 ? j[T + 2] : 0;
-          if (isFinite(N) && isFinite(C) && isFinite(w)) {
-            const S = new a.Vector3(N, C, w).applyMatrix4(c.matrixWorld);
-            isFinite(S.x) && isFinite(S.y) && isFinite(S.z) && (x.expandByPoint(S), F = !0);
+      const S = (M) => {
+        const j = M.array, O = M.itemSize;
+        for (let R = 0; R < j.length; R += O) {
+          const A = j[R], G = j[R + 1], E = O > 2 ? j[R + 2] : 0;
+          if (isFinite(A) && isFinite(G) && isFinite(E)) {
+            const v = new a.Vector3(A, G, E).applyMatrix4(c.matrixWorld);
+            isFinite(v.x) && isFinite(v.y) && isFinite(v.z) && (P.expandByPoint(v), T = !0);
           }
         }
       };
-      return R(m), R(P), F ? x : null;
+      return S(m), S(b), T ? P : null;
     }
   }
   const n = t.getAttribute("position");
@@ -314,78 +314,78 @@ function Oe(c) {
   let l = !1;
   c.updateMatrixWorld(!0);
   for (let m = 0; m < i.length; m += s) {
-    const P = i[m], x = i[m + 1], F = s > 2 ? i[m + 2] : 0;
-    if (isFinite(P) && isFinite(x) && isFinite(F)) {
-      const R = new a.Vector3(P, x, F).applyMatrix4(c.matrixWorld);
-      isFinite(R.x) && isFinite(R.y) && isFinite(R.z) && (o.expandByPoint(R), l = !0);
+    const b = i[m], P = i[m + 1], T = s > 2 ? i[m + 2] : 0;
+    if (isFinite(b) && isFinite(P) && isFinite(T)) {
+      const S = new a.Vector3(b, P, T).applyMatrix4(c.matrixWorld);
+      isFinite(S.x) && isFinite(S.y) && isFinite(S.z) && (o.expandByPoint(S), l = !0);
     }
   }
   return l ? o : null;
 }
-function ke(c) {
+function Ae(c) {
   const e = new a.Box3();
   let t = !1;
   for (const n of c) {
-    const i = Oe(n);
+    const i = Le(n);
     i && !i.isEmpty() && (e.union(i), t = !0);
   }
   return t ? e : null;
 }
-function pe(c, e, t) {
+function we(c, e, t) {
   const n = t.getBoundingClientRect();
   return new a.Vector2(
     (c - n.left) / n.width * 2 - 1,
     -((e - n.top) / n.height) * 2 + 1
   );
 }
-function Ae(c, e, t, n) {
-  const i = pe(c, e, t), s = new a.Vector3(i.x, i.y, 0);
+function Fe(c, e, t, n) {
+  const i = we(c, e, t), s = new a.Vector3(i.x, i.y, 0);
   return s.unproject(n), s.z = 0, s;
 }
-let I = null;
-async function Fe() {
-  return I || (I = await import("./Line2Helper-D4QmpFuS.js")), I;
+let k = null;
+async function Ie() {
+  return k || (k = await import("./Line2Helper-D4QmpFuS.js")), k;
 }
-function be(c, e, t = 1) {
-  return I ? I.getLineMaterial(c, e, t) : new a.LineBasicMaterial({ color: c, linewidth: e, transparent: !0, opacity: t });
+function Pe(c, e, t = 1) {
+  return k ? k.getLineMaterial(c, e, t) : new a.LineBasicMaterial({ color: c, linewidth: e, transparent: !0, opacity: t });
 }
-function Ie(c, e, t, n) {
-  return I ? I.createOverlayFromCoordinates(c, e, t, n) : null;
-}
-function je(c, e) {
-  return I ? I.createOverlay(c, e) : null;
+function je(c, e, t, n) {
+  return k ? k.createOverlayFromCoordinates(c, e, t, n) : null;
 }
 function Ne(c, e) {
-  I && I.updateResolution(c, e);
+  return k ? k.createOverlay(c, e) : null;
 }
-function He() {
-  I && I.clearLineMaterialCache();
+function He(c, e) {
+  k && k.updateResolution(c, e);
 }
-class Ge {
+function Ge() {
+  k && k.clearLineMaterialCache();
+}
+class Be {
   constructor(e, t) {
-    f(this, "viewer");
-    f(this, "hoveredObject", null);
-    f(this, "isMouseDown", !1);
-    f(this, "isDragging", !1);
-    f(this, "interactionLayer");
-    f(this, "activeOverlays", /* @__PURE__ */ new Map());
-    f(this, "selectedHandles", /* @__PURE__ */ new Set());
-    f(this, "validHandles", null);
-    f(this, "intersectableObjectsCache", null);
-    f(this, "cacheLastUpdated", 0);
-    f(this, "CACHE_TTL", 2e3);
-    f(this, "dxfEntities", null);
-    f(this, "_boundOnPointerMove");
-    f(this, "_boundOnPointerLeave");
-    f(this, "_boundOnPointerDown");
-    f(this, "_boundOnPointerUp");
-    f(this, "_boundOnViewChanged");
-    f(this, "isEnabled", !0);
-    f(this, "onClick");
-    f(this, "boundingBoxMesh", null);
-    f(this, "animationFrameId", null);
-    f(this, "_boundOnLoaded");
-    f(this, "_boundOnCleared");
+    d(this, "viewer");
+    d(this, "hoveredObject", null);
+    d(this, "isMouseDown", !1);
+    d(this, "isDragging", !1);
+    d(this, "interactionLayer");
+    d(this, "activeOverlays", /* @__PURE__ */ new Map());
+    d(this, "selectedHandles", /* @__PURE__ */ new Set());
+    d(this, "validHandles", null);
+    d(this, "intersectableObjectsCache", null);
+    d(this, "cacheLastUpdated", 0);
+    d(this, "CACHE_TTL", 2e3);
+    d(this, "dxfEntities", null);
+    d(this, "_boundOnPointerMove");
+    d(this, "_boundOnPointerLeave");
+    d(this, "_boundOnPointerDown");
+    d(this, "_boundOnPointerUp");
+    d(this, "_boundOnViewChanged");
+    d(this, "isEnabled", !0);
+    d(this, "onClick");
+    d(this, "boundingBoxMesh", null);
+    d(this, "animationFrameId", null);
+    d(this, "_boundOnLoaded");
+    d(this, "_boundOnCleared");
     this.viewer = e, this.onClick = t, this.interactionLayer = new a.Group(), this.interactionLayer.name = "InteractionLayer", this.interactionLayer.renderOrder = 999, this.viewer.GetScene().add(this.interactionLayer), this.updateResolution(), this._boundOnPointerMove = this._onPointerMove.bind(this), this._boundOnPointerLeave = this._onPointerLeave.bind(this), this._boundOnPointerDown = this._onPointerDown.bind(this), this._boundOnPointerUp = this._onPointerUp.bind(this), this._boundOnViewChanged = this.updateResolution.bind(this), this._boundOnLoaded = this._onLoaded.bind(this), this._boundOnCleared = this._onCleared.bind(this), this.setupEventListeners(), this.initLine2Helper();
   }
   _onLoaded() {
@@ -395,11 +395,11 @@ class Ge {
     this.clearHighlights(), this.dxfEntities = null, this.intersectableObjectsCache = null;
   }
   async initLine2Helper() {
-    await Fe();
+    await Ie();
   }
   updateResolution() {
     const e = this.viewer.GetCanvas();
-    e && Ne(e.width, e.height);
+    e && He(e.width, e.height);
   }
   setEnabled(e) {
     this.isEnabled = e, e || (this._clearHover(), this.clearHighlights());
@@ -410,7 +410,7 @@ class Ge {
   }
   destroy() {
     const e = this.viewer.GetCanvas();
-    e && (e.removeEventListener("pointermove", this._boundOnPointerMove), e.removeEventListener("pointerleave", this._boundOnPointerLeave), e.removeEventListener("pointerdown", this._boundOnPointerDown), e.removeEventListener("pointerup", this._boundOnPointerUp)), this.viewer.Unsubscribe("pointerdown", this._boundOnPointerDown), this.viewer.Unsubscribe("resized", this._boundOnViewChanged), this.viewer.Unsubscribe("loaded", this._boundOnLoaded), this.viewer.Unsubscribe("cleared", this._boundOnCleared), this._clearHover(), this.clearHighlights(), He(), this.animationFrameId !== null && (cancelAnimationFrame(this.animationFrameId), this.animationFrameId = null), this.viewer.GetScene().remove(this.interactionLayer);
+    e && (e.removeEventListener("pointermove", this._boundOnPointerMove), e.removeEventListener("pointerleave", this._boundOnPointerLeave), e.removeEventListener("pointerdown", this._boundOnPointerDown), e.removeEventListener("pointerup", this._boundOnPointerUp)), this.viewer.Unsubscribe("pointerdown", this._boundOnPointerDown), this.viewer.Unsubscribe("resized", this._boundOnViewChanged), this.viewer.Unsubscribe("loaded", this._boundOnLoaded), this.viewer.Unsubscribe("cleared", this._boundOnCleared), this._clearHover(), this.clearHighlights(), Ge(), this.animationFrameId !== null && (cancelAnimationFrame(this.animationFrameId), this.animationFrameId = null), this.viewer.GetScene().remove(this.interactionLayer);
   }
   resolveDxfObject(e) {
     let t = e;
@@ -472,39 +472,39 @@ class Ge {
     if (!o || this.activeOverlays.has(o)) return !1;
     o.updateMatrixWorld(!0);
     let l = null;
-    const m = o.userData.dxfHandle, P = s ? null : this.getGeometryFromHandle(m);
-    if (P) {
-      const x = be(t, n, i);
-      l = Ie(
-        P.vertices,
-        x,
-        P.isClosed,
+    const m = o.userData.dxfHandle, b = s ? null : this.getGeometryFromHandle(m);
+    if (b) {
+      const P = Pe(t, n, i);
+      l = je(
+        b.vertices,
+        P,
+        b.isClosed,
         o.matrixWorld
       );
     }
     if (!l) {
       if (o instanceof a.LineSegments || o instanceof a.Line)
         if (s) {
-          const x = new a.LineBasicMaterial({
+          const P = new a.LineBasicMaterial({
             color: t,
             linewidth: 1,
             depthTest: !1,
             transparent: !0,
             opacity: i
           });
-          l = o.clone(), l.material = x, l.renderOrder = 999;
+          l = o.clone(), l.material = P, l.renderOrder = 999;
         } else {
-          const x = be(t, n, i);
-          l = je(o, x);
+          const P = Pe(t, n, i);
+          l = Ne(o, P);
         }
       else if (o instanceof a.Mesh) {
-        const x = new a.MeshBasicMaterial({
+        const P = new a.MeshBasicMaterial({
           color: t,
           transparent: !0,
           opacity: i,
           depthTest: !1
         });
-        l = o.clone(), l.material = x, l.renderOrder = 999;
+        l = o.clone(), l.material = P, l.renderOrder = 999;
       }
     }
     return l ? (this.interactionLayer.add(l), this.activeOverlays.set(o, l), !0) : !1;
@@ -554,7 +554,7 @@ class Ge {
       this._clearHover();
       return;
     }
-    const n = pe(e.clientX, e.clientY, t), i = new a.Raycaster();
+    const n = we(e.clientX, e.clientY, t), i = new a.Raycaster();
     i.setFromCamera(n, this.viewer.GetCamera()), i.params.Line.threshold = 6;
     const s = i.intersectObjects(this.getIntersectableObjects());
     let o = null;
@@ -589,7 +589,7 @@ class Ge {
     }
     const t = this.viewer.GetCanvas();
     if (!t) return;
-    const n = pe(e.clientX, e.clientY, t), i = new a.Raycaster();
+    const n = we(e.clientX, e.clientY, t), i = new a.Raycaster();
     i.setFromCamera(n, this.viewer.GetCamera()), i.params.Line.threshold = 3;
     const s = i.intersectObjects(this.getIntersectableObjects());
     if (s.length > 0) {
@@ -636,7 +636,7 @@ class Ge {
       const m = l.userData.dxfType;
       (m === "TEXT" || m === "MTEXT" || m === "ATTRIB") && l instanceof a.LineSegments ? this.addOverlay(l, 39423, 2, 1, !0) : this.addOverlay(l, 39423, 5);
     }), this.viewer.Render();
-    const o = ke(s);
+    const o = Ae(s);
     !o || o.isEmpty() || (t.length === 0 && this.highlightContextInBounds(o, Array.from(this.selectedHandles)), this.createBoundingBoxOverlay(o), n && this.animateToFit(o, 800));
   }
   highlightContextInBounds(e, t) {
@@ -675,8 +675,8 @@ class Ge {
         color: 9647082,
         linewidth: 2,
         depthTest: !1
-      }), P = new a.LineSegments(l, m);
-      this.boundingBoxMesh.add(P), this.viewer.GetScene().add(this.boundingBoxMesh), this.viewer.Render();
+      }), b = new a.LineSegments(l, m);
+      this.boundingBoxMesh.add(b), this.viewer.GetScene().add(this.boundingBoxMesh), this.viewer.Render();
     } catch (s) {
       console.error("[EntityInteraction] Error creating bounding box overlay:", s);
     }
@@ -687,53 +687,53 @@ class Ge {
     if (e.isEmpty() || !isFinite(e.min.x) || !isFinite(e.min.y)) return;
     const i = new a.Vector3(), s = new a.Vector3();
     e.getSize(i), e.getCenter(s);
-    const o = s.x - n.x, l = s.y - n.y, m = this.viewer.GetCanvas(), P = m ? m.width : 800, x = m ? m.height : 600, F = P / x, R = 1.5;
-    let D = i.x * R;
-    i.y * R * F > D && (D = i.y * R * F), D = Math.max(D, 30);
+    const o = s.x - n.x, l = s.y - n.y, m = this.viewer.GetCanvas(), b = m ? m.width : 800, P = m ? m.height : 600, T = b / P, S = 1.5;
+    let M = i.x * S;
+    i.y * S * T > M && (M = i.y * S * T), M = Math.max(M, 30);
     let O = null;
-    const T = performance.now(), N = (C) => {
+    const R = performance.now(), A = (G) => {
       if (!O) {
-        const _ = this.viewer.GetCamera();
-        if (!isFinite(_.position.x) || !isFinite(_.zoom)) {
+        const w = this.viewer.GetCamera();
+        if (!isFinite(w.position.x) || !isFinite(w.zoom)) {
           this.animationFrameId = null;
           return;
         }
         if (O = {
-          cx: _.position.x - n.x,
-          cy: _.position.y - n.y,
-          vw: _.right - _.left
-        }, Math.hypot(o - O.cx, l - O.cy) < O.vw * 0.01 && Math.abs(D - O.vw) < O.vw * 0.01) {
+          cx: w.position.x - n.x,
+          cy: w.position.y - n.y,
+          vw: w.right - w.left
+        }, Math.hypot(o - O.cx, l - O.cy) < O.vw * 0.01 && Math.abs(M - O.vw) < O.vw * 0.01) {
           this.animationFrameId = null;
           return;
         }
       }
-      const w = C - T, S = Math.min(w / t, 1), k = S < 0.5 ? 4 * S * S * S : 1 - Math.pow(-2 * S + 2, 3) / 2, V = O.cx + (o - O.cx) * k, A = O.cy + (l - O.cy) * k, E = O.vw + (D - O.vw) * k;
-      this.viewer.SetView({ x: V + n.x, y: A + n.y }, E), this.viewer.Render(), S < 1 ? this.animationFrameId = requestAnimationFrame(N) : this.animationFrameId = null;
+      const E = G - R, v = Math.min(E / t, 1), N = v < 0.5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2, F = O.cx + (o - O.cx) * N, W = O.cy + (l - O.cy) * N, D = O.vw + (M - O.vw) * N;
+      this.viewer.SetView({ x: F + n.x, y: W + n.y }, D), this.viewer.Render(), v < 1 ? this.animationFrameId = requestAnimationFrame(A) : this.animationFrameId = null;
     };
-    this.animationFrameId = requestAnimationFrame(N);
+    this.animationFrameId = requestAnimationFrame(A);
   }
 }
-const Be = 40, Ve = 10, ze = 20, fe = 7, ae = 16711680, We = 16733525, Ye = 16711680, Ue = 3, ee = 999, me = !1;
-class $e {
+const Ve = 40, ze = 10, We = 20, me = 7, ce = 16711680, Ye = 16733525, Ue = 16711680, $e = 3, ne = 999, ve = !1;
+class Xe {
   constructor(e, t, n) {
-    f(this, "viewer");
-    f(this, "canvas");
-    f(this, "isActive", !1);
-    f(this, "points", []);
-    f(this, "previewLine", null);
-    f(this, "polygonLine", null);
-    f(this, "pointsMesh", null);
-    f(this, "startPointMesh", null);
-    f(this, "mousePosition", new a.Vector3());
-    f(this, "completedPolygonLine", null);
-    f(this, "completedPointsMesh", null);
-    f(this, "isHoveringNearStart", !1);
-    f(this, "onComplete");
-    f(this, "onCancel");
-    f(this, "_boundOnPointerDown");
-    f(this, "_boundOnPointerMove");
-    f(this, "_boundOnKeyDown");
-    f(this, "_boundOnDblClick");
+    d(this, "viewer");
+    d(this, "canvas");
+    d(this, "isActive", !1);
+    d(this, "points", []);
+    d(this, "previewLine", null);
+    d(this, "polygonLine", null);
+    d(this, "pointsMesh", null);
+    d(this, "startPointMesh", null);
+    d(this, "mousePosition", new a.Vector3());
+    d(this, "completedPolygonLine", null);
+    d(this, "completedPointsMesh", null);
+    d(this, "isHoveringNearStart", !1);
+    d(this, "onComplete");
+    d(this, "onCancel");
+    d(this, "_boundOnPointerDown");
+    d(this, "_boundOnPointerMove");
+    d(this, "_boundOnKeyDown");
+    d(this, "_boundOnDblClick");
     this.viewer = e;
     const i = e.GetCanvas();
     if (!i)
@@ -760,7 +760,7 @@ class $e {
   }
   getSnapThreshold() {
     const e = this.viewer.GetCamera(), n = (e.right - e.left) / e.zoom / this.canvas.width;
-    return Be * n;
+    return Ve * n;
   }
   isNearStartPoint(e) {
     if (this.points.length < 3)
@@ -769,7 +769,7 @@ class $e {
     return n < i;
   }
   _getWorldPosition(e) {
-    return Ae(e.clientX, e.clientY, this.canvas, this.viewer.GetCamera());
+    return Fe(e.clientX, e.clientY, this.canvas, this.viewer.GetCamera());
   }
   _onPointerDown(e) {
     if (e.button !== 0) return;
@@ -800,24 +800,24 @@ class $e {
   drawRegularPoints(e) {
     if (this.points.length <= 1) return;
     const t = new a.BufferGeometry().setFromPoints(this.points.slice(1)), n = new a.PointsMaterial({
-      color: ae,
-      size: fe,
-      sizeAttenuation: me
+      color: ce,
+      size: me,
+      sizeAttenuation: ve
     });
-    this.pointsMesh = new a.Points(t, n), this.pointsMesh.renderOrder = ee, e.add(this.pointsMesh);
+    this.pointsMesh = new a.Points(t, n), this.pointsMesh.renderOrder = ne, e.add(this.pointsMesh);
   }
   drawStartPoint(e) {
-    const t = this.isHoveringNearStart ? We : ae, n = new a.BufferGeometry().setFromPoints([this.points[0]]), i = new a.PointsMaterial({
+    const t = this.isHoveringNearStart ? Ye : ce, n = new a.BufferGeometry().setFromPoints([this.points[0]]), i = new a.PointsMaterial({
       color: t,
-      size: fe,
-      sizeAttenuation: me
+      size: me,
+      sizeAttenuation: ve
     });
-    this.startPointMesh = new a.Points(n, i), this.startPointMesh.renderOrder = ee, e.add(this.startPointMesh);
+    this.startPointMesh = new a.Points(n, i), this.startPointMesh.renderOrder = ne, e.add(this.startPointMesh);
   }
   drawPolygonLine(e) {
     if (this.points.length <= 1) return;
-    const t = new a.BufferGeometry().setFromPoints(this.points), n = new a.LineBasicMaterial({ color: ae });
-    this.polygonLine = new a.Line(t, n), this.polygonLine.renderOrder = ee, e.add(this.polygonLine);
+    const t = new a.BufferGeometry().setFromPoints(this.points), n = new a.LineBasicMaterial({ color: ce });
+    this.polygonLine = new a.Line(t, n), this.polygonLine.renderOrder = ne, e.add(this.polygonLine);
   }
   clearDrawingVisualsOnly() {
     const e = this.viewer.GetScene();
@@ -831,7 +831,7 @@ class $e {
     this.previewLine = new a.Line(
       new a.BufferGeometry().setFromPoints([t, n]),
       i
-    ), i instanceof a.LineDashedMaterial && this.previewLine.computeLineDistances(), this.previewLine.renderOrder = ee, e.add(this.previewLine), this.viewer.Render();
+    ), i instanceof a.LineDashedMaterial && this.previewLine.computeLineDistances(), this.previewLine.renderOrder = ne, e.add(this.previewLine), this.viewer.Render();
   }
   clearPreviewLine(e) {
     this.previewLine && (e.remove(this.previewLine), this.previewLine.geometry.dispose(), this.previewLine.material.dispose(), this.previewLine = null);
@@ -841,14 +841,14 @@ class $e {
   }
   createPreviewMaterial() {
     return new a.LineDashedMaterial({
-      color: Ye,
-      dashSize: Ve,
-      gapSize: ze,
+      color: Ue,
+      dashSize: ze,
+      gapSize: We,
       transparent: !1
     });
   }
   completeSelection() {
-    if (this.points.length < Ue) {
+    if (this.points.length < $e) {
       this.cancelSelection();
       return;
     }
@@ -860,15 +860,15 @@ class $e {
     const e = this.viewer.GetScene();
     this.completedPolygonLine && e.remove(this.completedPolygonLine), this.completedPointsMesh && e.remove(this.completedPointsMesh);
     const t = new a.BufferGeometry().setFromPoints(this.points), n = new a.PointsMaterial({
-      color: ae,
-      size: fe,
-      sizeAttenuation: me
+      color: ce,
+      size: me,
+      sizeAttenuation: ve
     });
-    this.completedPointsMesh = new a.Points(t, n), this.completedPointsMesh.renderOrder = ee, this.completedPointsMesh.name = "completed-polygon-points", e.add(this.completedPointsMesh);
+    this.completedPointsMesh = new a.Points(t, n), this.completedPointsMesh.renderOrder = ne, this.completedPointsMesh.name = "completed-polygon-points", e.add(this.completedPointsMesh);
     const i = new a.BufferGeometry().setFromPoints(this.points), s = new a.LineBasicMaterial({
-      color: ae
+      color: ce
     });
-    this.completedPolygonLine = new a.LineLoop(i, s), this.completedPolygonLine.renderOrder = ee, this.completedPolygonLine.name = "completed-polygon-boundary", e.add(this.completedPolygonLine), this.viewer.Render();
+    this.completedPolygonLine = new a.LineLoop(i, s), this.completedPolygonLine.renderOrder = ne, this.completedPolygonLine.name = "completed-polygon-boundary", e.add(this.completedPolygonLine), this.viewer.Render();
   }
   cancelSelection() {
     this.onCancel(), this.deactivate();
@@ -877,7 +877,7 @@ class $e {
     const e = [], t = new a.Box3().setFromPoints(this.points);
     return this.viewer.GetScene().traverse((n) => {
       if (n.userData.dxfHandle) {
-        const i = Oe(n);
+        const i = Le(n);
         if (i && t.intersectsBox(i)) {
           const s = new a.Vector3();
           i.getCenter(s), this.isPointInPolygon(s) && e.push(n.userData.dxfHandle);
@@ -900,14 +900,14 @@ class $e {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Xe = (c) => c.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), Le = (...c) => c.filter((e, t, n) => !!e && e.trim() !== "" && n.indexOf(e) === t).join(" ").trim();
+const qe = (c) => c.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), _e = (...c) => c.filter((e, t, n) => !!e && e.trim() !== "" && n.indexOf(e) === t).join(" ").trim();
 /**
  * @license lucide-react v0.469.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-var qe = {
+var Ze = {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
   height: 24,
@@ -924,7 +924,7 @@ var qe = {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Ze = Pe(
+const Je = Oe(
   ({
     color: c = "currentColor",
     size: e = 24,
@@ -934,20 +934,20 @@ const Ze = Pe(
     children: s,
     iconNode: o,
     ...l
-  }, m) => ve(
+  }, m) => pe(
     "svg",
     {
       ref: m,
-      ...qe,
+      ...Ze,
       width: e,
       height: e,
       stroke: c,
       strokeWidth: n ? Number(t) * 24 / Number(e) : t,
-      className: Le("lucide", i),
+      className: _e("lucide", i),
       ...l
     },
     [
-      ...o.map(([P, x]) => ve(P, x)),
+      ...o.map(([b, P]) => pe(b, P)),
       ...Array.isArray(s) ? s : [s]
     ]
   )
@@ -958,12 +958,12 @@ const Ze = Pe(
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const de = (c, e) => {
-  const t = Pe(
-    ({ className: n, ...i }, s) => ve(Ze, {
+const fe = (c, e) => {
+  const t = Oe(
+    ({ className: n, ...i }, s) => pe(Je, {
       ref: s,
       iconNode: e,
-      className: Le(`lucide-${Xe(c)}`, n),
+      className: _e(`lucide-${qe(c)}`, n),
       ...i
     })
   );
@@ -975,7 +975,7 @@ const de = (c, e) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Je = de("RotateCcw", [
+const Ke = fe("RotateCcw", [
   ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
   ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
 ]);
@@ -985,7 +985,7 @@ const Je = de("RotateCcw", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Ke = de("Square", [
+const Qe = fe("Square", [
   ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }]
 ]);
 /**
@@ -994,7 +994,7 @@ const Ke = de("Square", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Qe = de("ZoomIn", [
+const et = fe("ZoomIn", [
   ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }],
   ["line", { x1: "21", x2: "16.65", y1: "21", y2: "16.65", key: "13gj7c" }],
   ["line", { x1: "11", x2: "11", y1: "8", y2: "14", key: "1vmskp" }],
@@ -1006,19 +1006,19 @@ const Qe = de("ZoomIn", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const et = de("ZoomOut", [
+const tt = fe("ZoomOut", [
   ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }],
   ["line", { x1: "21", x2: "16.65", y1: "21", y2: "16.65", key: "13gj7c" }],
   ["line", { x1: "8", x2: "14", y1: "11", y2: "11", key: "durymu" }]
 ]);
-function ue(c) {
-  const e = te(c);
-  return Z(() => {
+function he(c) {
+  const e = ie(c);
+  return K(() => {
     e.current = c;
   }, [c]), e;
 }
-function he({ onClick: c, active: e, title: t, children: n }) {
-  return /* @__PURE__ */ y.jsx(
+function de({ onClick: c, active: e, title: t, children: n }) {
+  return /* @__PURE__ */ x.jsx(
     "button",
     {
       className: `dxf-toolbar-btn ${e ? "dxf-toolbar-btn-active" : ""}`,
@@ -1029,7 +1029,7 @@ function he({ onClick: c, active: e, title: t, children: n }) {
     }
   );
 }
-function it({
+function rt({
   file: c,
   url: e,
   fileName: t = "drawing.dxf",
@@ -1039,41 +1039,42 @@ function it({
   selectedHandles: s = [],
   visibleHandles: o = null,
   filteredHandles: l = null,
-  isPolygonMode: m = !1,
+  interactiveHandles: m = null,
+  isPolygonMode: b = !1,
   // Outputs
   onLoad: P,
-  onError: x,
-  onSelectionChange: F,
-  onPolygonModeChange: R,
+  onError: T,
+  onSelectionChange: S,
+  onPolygonModeChange: M,
   // Options
-  showToolbar: D = !0,
-  enablePolygonSelection: j = !0,
-  enableInteraction: O = !0,
-  enableZoomOnSelect: T = !0
+  showToolbar: j = !0,
+  enablePolygonSelection: O = !0,
+  enableInteraction: R = !0,
+  enableZoomOnSelect: A = !0
 }) {
-  const N = Me(
-    () => o,
-    [o]
-  ), C = ue(F), w = ue(R), S = ue(P), k = ue(x), V = te(null), A = te(null), E = te(null), _ = te(null), B = te(!1), [Y, H] = re(!1), [U, $] = re(!0), [ne, J] = re("Initializing..."), [z, X] = re(null), [W, ce] = re(null);
-  Z(() => {
-    H(m);
-  }, [m]), Z(() => {
+  const G = Re(
+    () => m ?? o,
+    [m, o]
+  ), E = he(S), v = he(M), N = he(P), F = he(T), W = ie(null), D = ie(null), w = ie(null), I = ie(null), Y = ie(!1), [B, V] = se(!1), [Q, z] = se(!0), [le, ee] = se("Initializing..."), [U, q] = se(null), [$, r] = se(null);
+  K(() => {
+    V(b);
+  }, [b]), K(() => {
     typeof window > "u" || import("./index-eV3yEHKa.js").then((h) => {
-      ce(() => h.DxfViewer);
+      r(() => h.DxfViewer);
     }).catch((h) => {
-      console.error("Failed to load DxfViewer:", h), X(h instanceof Error ? h : new Error(String(h))), $(!1);
+      console.error("Failed to load DxfViewer:", h), q(h instanceof Error ? h : new Error(String(h))), z(!1);
     });
   }, []);
-  const r = q(() => {
+  const f = J(() => {
     var h;
-    if (!V.current || !W) return null;
-    if (A.current) {
+    if (!W.current || !$) return null;
+    if (D.current) {
       try {
-        A.current.Destroy();
+        D.current.Destroy();
       } catch (u) {
         console.warn("Error destroying viewer:", u);
       }
-      A.current = null;
+      D.current = null;
     }
     try {
       const u = {
@@ -1083,180 +1084,180 @@ function it({
         antialias: !0,
         colorCorrection: !0,
         blackWhiteInversion: !0
-      }, v = new W(V.current, u);
-      if (!v.HasRenderer())
+      }, p = new $(W.current, u);
+      if (!p.HasRenderer())
         throw new Error("WebGL not available. Please check your browser supports WebGL.");
-      return A.current = v, v.Subscribe("loaded", () => {
-        var M;
+      return D.current = p, p.Subscribe("loaded", () => {
+        var C;
         console.log("DXF loaded successfully");
-        const p = v.GetBounds();
-        if (p) {
-          const G = v.GetOrigin();
-          v.FitView(
-            p.minX - G.x,
-            p.maxX - G.x,
-            p.minY - G.y,
-            p.maxY - G.y,
+        const y = p.GetBounds();
+        if (y) {
+          const H = p.GetOrigin();
+          p.FitView(
+            y.minX - H.x,
+            y.maxX - H.x,
+            y.minY - H.y,
+            y.maxY - H.y,
             0.1
           );
         }
-        v.Render(), $(!1), (M = S.current) == null || M.call(S);
-      }), v.Subscribe("message", (p) => {
-        const { message: M, level: G } = p.detail;
-        G === "error" ? console.error("[DxfViewer]", M) : G === "warn" && console.warn("[DxfViewer]", M);
-      }), v;
+        p.Render(), z(!1), (C = N.current) == null || C.call(N);
+      }), p.Subscribe("message", (y) => {
+        const { message: C, level: H } = y.detail;
+        H === "error" ? console.error("[DxfViewer]", C) : H === "warn" && console.warn("[DxfViewer]", C);
+      }), p;
     } catch (u) {
-      const v = u instanceof Error ? u : new Error(String(u));
-      return X(v), $(!1), (h = k.current) == null || h.call(k, v), null;
+      const p = u instanceof Error ? u : new Error(String(u));
+      return q(p), z(!1), (h = F.current) == null || h.call(F, p), null;
     }
-  }, [W, S, k]), d = q(
+  }, [$, N, F]), g = J(
     async (h, u) => {
-      var v;
-      $(!0), X(null), J("Loading...");
+      var p;
+      z(!0), q(null), ee("Loading...");
       try {
-        let p;
+        let y;
         if (typeof u == "string")
-          p = u;
+          y = u;
         else {
-          const M = new Blob([u], { type: "application/octet-stream" });
-          p = URL.createObjectURL(M);
+          const C = new Blob([u], { type: "application/octet-stream" });
+          y = URL.createObjectURL(C);
         }
         await h.Load({
-          url: p,
+          url: y,
           fonts: n ?? null,
-          progressCbk: (M, G, we) => {
-            let Q = M;
-            if (M === "fetch" ? Q = "Downloading..." : M === "parse" ? Q = "Parsing DXF..." : M === "prepare" ? Q = "Preparing scene..." : M === "font" && (Q = "Loading fonts..."), we && G) {
-              const _e = Math.round(G / we * 100);
-              J(`${Q} ${_e}%`);
+          progressCbk: (C, H, ge) => {
+            let te = C;
+            if (C === "fetch" ? te = "Downloading..." : C === "parse" ? te = "Parsing DXF..." : C === "prepare" ? te = "Preparing scene..." : C === "font" && (te = "Loading fonts..."), ge && H) {
+              const Ee = Math.round(H / ge * 100);
+              ee(`${te} ${Ee}%`);
             } else
-              J(Q);
+              ee(te);
           }
-        }), typeof u != "string" && URL.revokeObjectURL(p);
-      } catch (p) {
-        const M = p instanceof Error ? p : new Error(String(p));
-        console.error("Failed to load DXF:", M), X(M), $(!1), (v = k.current) == null || v.call(k, M);
+        }), typeof u != "string" && URL.revokeObjectURL(y);
+      } catch (y) {
+        const C = y instanceof Error ? y : new Error(String(y));
+        console.error("Failed to load DXF:", C), q(C), z(!1), (p = F.current) == null || p.call(F, C);
       }
     },
-    [n, k]
+    [n, F]
   );
-  Z(() => {
-    if (!W || !V.current) return;
-    const h = r();
+  K(() => {
+    if (!$ || !W.current) return;
+    const h = f();
     if (h)
-      return O && (E.current = new Ge(h, (u) => {
-        var v, p;
-        H(!1), (v = w.current) == null || v.call(w, !1), B.current = !1, (p = C.current) == null || p.call(C, [u]);
-      })), j && (_.current = new $e(
+      return R && (w.current = new Be(h, (u) => {
+        var p, y;
+        V(!1), (p = v.current) == null || p.call(v, !1), Y.current = !1, (y = E.current) == null || y.call(E, [u]);
+      })), O && (I.current = new Xe(
         h,
         (u) => {
-          var v, p;
-          H(!1), (v = w.current) == null || v.call(w, !1), B.current = !0, (p = C.current) == null || p.call(C, u, { isPolygonSelection: !0 });
+          var p, y;
+          V(!1), (p = v.current) == null || p.call(v, !1), Y.current = !0, (y = E.current) == null || y.call(E, u, { isPolygonSelection: !0 });
         },
         () => {
           var u;
-          H(!1), (u = w.current) == null || u.call(w, !1);
+          V(!1), (u = v.current) == null || u.call(v, !1);
         }
-      )), c ? d(h, c) : e && d(h, e), () => {
-        var u, v;
-        if ((u = E.current) == null || u.destroy(), E.current = null, (v = _.current) == null || v.deactivate(), _.current = null, A.current) {
+      )), c ? g(h, c) : e && g(h, e), () => {
+        var u, p;
+        if ((u = w.current) == null || u.destroy(), w.current = null, (p = I.current) == null || p.deactivate(), I.current = null, D.current) {
           try {
-            A.current.Destroy();
-          } catch (p) {
-            console.warn("Error destroying viewer:", p);
+            D.current.Destroy();
+          } catch (y) {
+            console.warn("Error destroying viewer:", y);
           }
-          A.current = null;
+          D.current = null;
         }
       };
-  }, [W, c, e, r, d, O, j, C, w]), Z(() => {
-    !E.current || !_.current || (Y ? (E.current.setEnabled(!1), _.current.activate()) : (_.current.deactivate(), E.current.setEnabled(!0), s.length > 0 && !B.current && E.current.selectHandles(s, [], T)));
-  }, [Y, s, T]), Z(() => {
-    if (!E.current || U || z) return;
-    const h = B.current;
-    B.current = !1;
+  }, [$, c, e, f, g, R, O, E, v]), K(() => {
+    !w.current || !I.current || (B ? (w.current.setEnabled(!1), I.current.activate()) : (I.current.deactivate(), w.current.setEnabled(!0), s.length > 0 && !Y.current && w.current.selectHandles(s, [], A)));
+  }, [B, s, A]), K(() => {
+    if (!w.current || Q || U) return;
+    const h = Y.current;
+    Y.current = !1;
     const u = o || [];
     if (s.length > 0) {
-      const v = s.length === 1, p = T && (v || !h);
-      E.current.selectHandles(s, u, p);
-    } else l && l.length > 0 ? E.current.highlightHandles(l) : E.current.selectHandles([], u, !1);
-  }, [s, o, l, U, z, T]), Z(() => {
-    E.current && E.current.setValidHandles(N);
-  }, [N]);
-  const g = q(() => {
+      const p = s.length === 1, y = A && (p || !h);
+      w.current.selectHandles(s, u, y);
+    } else l && l.length > 0 ? w.current.highlightHandles(l) : w.current.selectHandles([], u, !1);
+  }, [s, o, l, Q, U, A]), K(() => {
+    w.current && w.current.setValidHandles(G);
+  }, [G]);
+  const L = J(() => {
     var u;
-    const h = !Y;
-    H(h), (u = w.current) == null || u.call(w, h);
-  }, [Y, w]), b = q(() => {
-    const h = A.current;
+    const h = !B;
+    V(h), (u = v.current) == null || u.call(v, h);
+  }, [B, v]), Z = J(() => {
+    const h = D.current;
     if (!h) return;
     const u = h.GetBounds();
     if (u) {
-      const v = h.GetOrigin();
+      const p = h.GetOrigin();
       h.FitView(
-        u.minX - v.x,
-        u.maxX - v.x,
-        u.minY - v.y,
-        u.maxY - v.y,
+        u.minX - p.x,
+        u.maxX - p.x,
+        u.minY - p.y,
+        u.maxY - p.y,
         0.1
       ), h.Render();
     }
-  }, []), K = q(() => {
+  }, []), re = J(() => {
     var h, u;
-    H(!1), (h = w.current) == null || h.call(w, !1), E.current && E.current.clearHighlights(), _.current && (_.current.clearCompletedPolygon(), _.current.clearInProgressPolygon()), B.current = !1, (u = C.current) == null || u.call(C, [], { isReset: !0 }), b();
-  }, [b, C, w]), ie = q(() => {
-    const h = A.current;
+    V(!1), (h = v.current) == null || h.call(v, !1), w.current && w.current.clearHighlights(), I.current && (I.current.clearCompletedPolygon(), I.current.clearInProgressPolygon()), Y.current = !1, (u = E.current) == null || u.call(E, [], { isReset: !0 }), Z();
+  }, [Z, E, v]), _ = J(() => {
+    const h = D.current;
     if (!h) return;
     const u = h.GetCamera();
     u.zoom *= 1.25, u.updateProjectionMatrix(), h.Render();
-  }, []), L = q(() => {
-    const h = A.current;
+  }, []), X = J(() => {
+    const h = D.current;
     if (!h) return;
     const u = h.GetCamera();
     u.zoom *= 0.8, u.updateProjectionMatrix(), h.Render();
   }, []);
-  return /* @__PURE__ */ y.jsx("div", { className: `dxf-viewer-wrapper ${i ?? ""}`, children: /* @__PURE__ */ y.jsx("div", { className: "dxf-main-content", children: /* @__PURE__ */ y.jsxs("div", { className: "dxf-viewer-container", children: [
-    /* @__PURE__ */ y.jsx(
+  return /* @__PURE__ */ x.jsx("div", { className: `dxf-viewer-wrapper ${i ?? ""}`, children: /* @__PURE__ */ x.jsx("div", { className: "dxf-main-content", children: /* @__PURE__ */ x.jsxs("div", { className: "dxf-viewer-container", children: [
+    /* @__PURE__ */ x.jsx(
       "div",
       {
-        ref: V,
+        ref: W,
         style: { width: "100%", height: "100%", position: "absolute", inset: 0 }
       }
     ),
-    U && /* @__PURE__ */ y.jsxs("div", { className: "dxf-loading-overlay", children: [
-      /* @__PURE__ */ y.jsx("div", { className: "dxf-loading-spinner" }),
-      /* @__PURE__ */ y.jsx("div", { className: "dxf-loading-progress", children: ne })
+    Q && /* @__PURE__ */ x.jsxs("div", { className: "dxf-loading-overlay", children: [
+      /* @__PURE__ */ x.jsx("div", { className: "dxf-loading-spinner" }),
+      /* @__PURE__ */ x.jsx("div", { className: "dxf-loading-progress", children: le })
     ] }),
-    z && /* @__PURE__ */ y.jsxs("div", { className: "dxf-error-overlay", children: [
-      /* @__PURE__ */ y.jsxs("svg", { className: "dxf-error-icon", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: [
-        /* @__PURE__ */ y.jsx("circle", { cx: "12", cy: "12", r: "10" }),
-        /* @__PURE__ */ y.jsx("path", { d: "M15 9l-6 6M9 9l6 6" })
+    U && /* @__PURE__ */ x.jsxs("div", { className: "dxf-error-overlay", children: [
+      /* @__PURE__ */ x.jsxs("svg", { className: "dxf-error-icon", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: [
+        /* @__PURE__ */ x.jsx("circle", { cx: "12", cy: "12", r: "10" }),
+        /* @__PURE__ */ x.jsx("path", { d: "M15 9l-6 6M9 9l6 6" })
       ] }),
-      /* @__PURE__ */ y.jsx("div", { className: "dxf-error-title", children: "Failed to load DXF" }),
-      /* @__PURE__ */ y.jsx("div", { className: "dxf-error-message", children: z.message })
+      /* @__PURE__ */ x.jsx("div", { className: "dxf-error-title", children: "Failed to load DXF" }),
+      /* @__PURE__ */ x.jsx("div", { className: "dxf-error-message", children: U.message })
     ] }),
-    D && !U && !z && /* @__PURE__ */ y.jsxs("div", { className: "dxf-bottom-toolbar", children: [
-      /* @__PURE__ */ y.jsx(he, { onClick: K, title: "Reset View", children: /* @__PURE__ */ y.jsx(Je, { size: 18 }) }),
-      j && /* @__PURE__ */ y.jsx(
-        he,
+    j && !Q && !U && /* @__PURE__ */ x.jsxs("div", { className: "dxf-bottom-toolbar", children: [
+      /* @__PURE__ */ x.jsx(de, { onClick: re, title: "Reset View", children: /* @__PURE__ */ x.jsx(Ke, { size: 18 }) }),
+      O && /* @__PURE__ */ x.jsx(
+        de,
         {
-          active: Y,
-          onClick: g,
+          active: B,
+          onClick: L,
           title: "Polygon Selection Tool",
-          children: /* @__PURE__ */ y.jsx(Ke, { size: 18 })
+          children: /* @__PURE__ */ x.jsx(Qe, { size: 18 })
         }
       ),
-      /* @__PURE__ */ y.jsx("div", { className: "dxf-toolbar-separator" }),
-      /* @__PURE__ */ y.jsx(he, { onClick: L, title: "Zoom Out", children: /* @__PURE__ */ y.jsx(et, { size: 18 }) }),
-      /* @__PURE__ */ y.jsx(he, { onClick: ie, title: "Zoom In", children: /* @__PURE__ */ y.jsx(Qe, { size: 18 }) })
+      /* @__PURE__ */ x.jsx("div", { className: "dxf-toolbar-separator" }),
+      /* @__PURE__ */ x.jsx(de, { onClick: X, title: "Zoom Out", children: /* @__PURE__ */ x.jsx(tt, { size: 18 }) }),
+      /* @__PURE__ */ x.jsx(de, { onClick: _, title: "Zoom In", children: /* @__PURE__ */ x.jsx(et, { size: 18 }) })
     ] })
   ] }) }) });
 }
 export {
-  it as DxfViewer,
-  Ge as EntityInteraction,
-  $e as PolygonSelectionTool,
-  pe as getNDC,
-  Oe as getSafeObjectBounds,
-  ke as getSafeObjectsBounds,
-  Ae as unprojectToPlane
+  rt as DxfViewer,
+  Be as EntityInteraction,
+  Xe as PolygonSelectionTool,
+  we as getNDC,
+  Le as getSafeObjectBounds,
+  Ae as getSafeObjectsBounds,
+  Fe as unprojectToPlane
 };

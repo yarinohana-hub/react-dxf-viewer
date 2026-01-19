@@ -30,6 +30,13 @@ export interface DxfViewerProps {
      */
     filteredHandles?: string[] | null;
     /**
+     * Handles that are interactive (can be hovered/clicked).
+     * If provided, only entities with handles in this list will respond to mouse events.
+     * If null/undefined, all entities are interactive (default behavior).
+     * This is separate from visibleHandles - entities can be visible but not interactive.
+     */
+    interactiveHandles?: string[] | null;
+    /**
      * Whether polygon selection mode should be active.
      * Controlled externally by parent.
      */
@@ -62,5 +69,5 @@ export interface DxfViewerProps {
     /** Enable zoom animation when selecting entities (default: true) */
     enableZoomOnSelect?: boolean;
 }
-export declare function DxfViewer({ file, url, fileName: _fileName, fonts, className, selectedHandles, visibleHandles, filteredHandles, isPolygonMode: isPolygonModeProp, onLoad, onError, onSelectionChange, onPolygonModeChange, showToolbar, enablePolygonSelection, enableInteraction, enableZoomOnSelect, }: DxfViewerProps): import("react/jsx-runtime").JSX.Element;
+export declare function DxfViewer({ file, url, fileName: _fileName, fonts, className, selectedHandles, visibleHandles, filteredHandles, interactiveHandles, isPolygonMode: isPolygonModeProp, onLoad, onError, onSelectionChange, onPolygonModeChange, showToolbar, enablePolygonSelection, enableInteraction, enableZoomOnSelect, }: DxfViewerProps): import("react/jsx-runtime").JSX.Element;
 export default DxfViewer;

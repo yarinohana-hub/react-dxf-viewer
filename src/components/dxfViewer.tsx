@@ -64,6 +64,14 @@ export interface DxfViewerProps {
   filteredHandles?: string[] | null;
   
   /**
+   * Handles that are interactive (can be hovered/clicked).
+   * If provided, only entities with handles in this list will respond to mouse events.
+   * If null/undefined, all entities are interactive (default behavior).
+   * This is separate from visibleHandles - entities can be visible but not interactive.
+   */
+  interactiveHandles?: string[] | null;
+  
+  /**
    * Whether polygon selection mode should be active.
    * Controlled externally by parent.
    */
@@ -147,6 +155,7 @@ export function DxfViewer({
   selectedHandles = [],
   visibleHandles = null,
   filteredHandles = null,
+  interactiveHandles = null,
   isPolygonMode: isPolygonModeProp = false,
   // Outputs
   onLoad,
@@ -161,9 +170,10 @@ export function DxfViewer({
 }: DxfViewerProps) {
   
   // Compute valid handles for interaction (memoized)
-  const validHandles = useMemo(
-    () => visibleHandles,
-    [visibleHandles]
+  // interactiveHandles takes precedence over visibleHandles for restricting interactions
+  const validHandlesForInteraction = useMemo(
+    () => interactiveHandles ?? visibleHandles,
+    [interactiveHandles, visibleHandles]
   );
 
   // Store callbacks in refs to prevent effect re-runs
@@ -443,9 +453,9 @@ export function DxfViewer({
   // Effect: Update valid handles for interaction restriction
   useEffect(() => {
     if (entityInteractionRef.current) {
-      entityInteractionRef.current.setValidHandles(validHandles);
+      entityInteractionRef.current.setValidHandles(validHandlesForInteraction);
     }
-  }, [validHandles]);
+  }, [validHandlesForInteraction]);
 
   // Toolbar actions
   const handleTogglePolygonMode = useCallback(() => {
