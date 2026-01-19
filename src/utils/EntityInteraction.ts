@@ -4,6 +4,7 @@ import { getSafeObjectsBounds, getNDC } from './threeUtils';
 // Type import only - runtime import is dynamic
 type DxfViewer = import('@/core/dxf-viewer-library').DxfViewer;
 
+
 // These are imported at runtime from JS files - declare their types inline
 declare function getLineMaterial(color: number, linewidth: number, opacity?: number): THREE.Material;
 declare function createOverlayFromCoordinates(
