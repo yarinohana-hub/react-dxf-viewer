@@ -9,6 +9,7 @@ export function getSafeObjectBounds(obj: THREE.Object3D): THREE.Box3 | null {
   if (!(obj instanceof THREE.Mesh || obj instanceof THREE.Line || obj instanceof THREE.LineSegments || isLine2)) {
     return null;
   }
+  
 
   const geometry = (obj as THREE.Mesh).geometry;
   if (!geometry) return null;
