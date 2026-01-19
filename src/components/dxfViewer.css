@@ -1,0 +1,193 @@
+/* DXF Viewer Styles - Standalone Component */
+
+.dxf-viewer-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: #1a1a2e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+/* Bottom toolbar */
+.dxf-bottom-toolbar {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.dxf-toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.dxf-toolbar-btn:hover {
+  background: rgba(77, 168, 218, 0.2);
+  border-color: rgba(77, 168, 218, 0.5);
+  color: #4da8da;
+}
+
+.dxf-toolbar-btn:active {
+  transform: scale(0.95);
+}
+
+.dxf-toolbar-btn-active {
+  background: rgba(77, 168, 218, 0.4);
+  border-color: rgba(77, 168, 218, 0.8);
+  color: #4da8da;
+}
+
+.dxf-toolbar-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.dxf-toolbar-separator {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 4px;
+}
+
+/* Main content area */
+.dxf-main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Viewer container */
+.dxf-viewer-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.dxf-viewer-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: grab;
+  position: relative;
+  z-index: 1;
+}
+
+.dxf-viewer-container canvas:active {
+  cursor: grabbing;
+}
+
+/* Loading overlay */
+.dxf-loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 10;
+}
+
+.dxf-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #4da8da;
+  border-radius: 50%;
+  animation: dxf-spin 0.8s linear infinite;
+}
+
+@keyframes dxf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dxf-loading-text {
+  margin-top: 12px;
+  color: #606060;
+  font-size: 14px;
+}
+
+.dxf-loading-progress {
+  margin-top: 8px;
+  color: #909090;
+  font-size: 12px;
+}
+
+/* Error state */
+.dxf-error-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 10;
+}
+
+.dxf-error-icon {
+  width: 48px;
+  height: 48px;
+  color: #e74c3c;
+  margin-bottom: 12px;
+}
+
+.dxf-error-title {
+  color: #e74c3c;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.dxf-error-message {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  max-width: 300px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dxf-bottom-toolbar {
+    padding: 6px 10px;
+  }
+  
+  .dxf-toolbar-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .dxf-toolbar-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}

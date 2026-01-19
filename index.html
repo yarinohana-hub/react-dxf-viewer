@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DXF Viewer - Dev</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #1a1a2e;
+        color: #fff;
+        min-height: 100vh;
+      }
+      #root {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .header {
+        padding: 16px 24px;
+        background: rgba(0,0,0,0.3);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .header h1 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .header input[type="file"] {
+        background: rgba(77, 168, 218, 0.2);
+        border: 1px solid rgba(77, 168, 218, 0.5);
+        border-radius: 8px;
+        padding: 8px 16px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .viewer-container {
+        flex: 1;
+        padding: 16px;
+      }
+      .empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: rgba(255,255,255,0.5);
+      }
+      .empty-state svg {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 16px;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/demo.tsx"></script>
+  </body>
+</html>
+
