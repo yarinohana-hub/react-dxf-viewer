@@ -1058,7 +1058,7 @@ function it({
   Z(() => {
     H(m);
   }, [m]), Z(() => {
-    typeof window > "u" || import("./index-TUcZLzcj.js").then((h) => {
+    typeof window > "u" || import("./index-eV3yEHKa.js").then((h) => {
       ce(() => h.DxfViewer);
     }).catch((h) => {
       console.error("Failed to load DxfViewer:", h), X(h instanceof Error ? h : new Error(String(h))), $(!1);

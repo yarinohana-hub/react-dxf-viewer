@@ -25439,7 +25439,20 @@ n0.prototype.download = function(r) {
     } else
       console.warn("Font file could not be downloaded. Try using a different browser.");
   else {
-    var l = require("fs"), u = T7(n);
+    var l = {
+      readFileSync: function() {
+        throw new Error("fs not available in browser");
+      },
+      readFile: function(c, p, f) {
+        var d = typeof p == "function" ? p : f;
+        d && d(new Error("fs not available"));
+      },
+      existsSync: function() {
+        return !1;
+      },
+      writeFileSync: function() {
+      }
+    }, u = T7(n);
     l.writeFileSync(r, u);
   }
 };
@@ -25756,7 +25769,20 @@ function tn(r, e, t, n) {
 }
 var rn = { parse: tn };
 function nn(r, e) {
-  var t = require("fs");
+  var t = {
+    readFileSync: function() {
+      throw new Error("fs not available in browser");
+    },
+    readFile: function(n, s, i) {
+      var a = typeof s == "function" ? s : i;
+      a && a(new Error("fs not available"));
+    },
+    existsSync: function() {
+      return !1;
+    },
+    writeFileSync: function() {
+    }
+  };
   t.readFile(r, function(n, s) {
     if (n)
       return e(n.message);
@@ -25949,7 +25975,20 @@ function on(r, e, t) {
   });
 }
 function ln(r, e) {
-  var t = require("fs"), n = t.readFileSync(r);
+  var t = {
+    readFileSync: function() {
+      throw new Error("fs not available in browser");
+    },
+    readFile: function(s, i, a) {
+      var o = typeof i == "function" ? i : a;
+      o && o(new Error("fs not available"));
+    },
+    existsSync: function() {
+      return !1;
+    },
+    writeFileSync: function() {
+    }
+  }, n = t.readFileSync(r);
   return d5(B6(n), e);
 }
 var hn = /* @__PURE__ */ Object.freeze({
