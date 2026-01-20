@@ -76,7 +76,7 @@ export class EntityInteraction {
     private interactionLayer: THREE.Group;
     private activeOverlays: Map<THREE.Object3D, THREE.Object3D> = new Map();
     private selectedHandles: Set<string> = new Set();
-    private validHandles: Set<string> | null = null;
+    private validHandles: Set<string> = new Set(); 
     
     private intersectableObjectsCache: THREE.Object3D[] | null = null;
     private cacheLastUpdated: number = 0;
@@ -383,11 +383,35 @@ export class EntityInteraction {
     }
 
     public setValidHandles(handles: string[] | null) {
-        this.validHandles = handles ? new Set(handles.map(h => h.toLowerCase())) : null;
+        // If handles is null, undefined, or empty array → nothing is interactive
+        // Only explicitly passed handles are interactive
+        this.validHandles = (handles && handles.length > 0) 
+            ? new Set(handles.map(h => h.toLowerCase())) 
+            : new Set(); 
         this.intersectableObjectsCache = null;
+        this.cacheLastUpdated = 0; 
+    }
+
+    /**
+     * Check if a handle is in the valid/interactive handles list.
+     * Returns true if interaction is allowed, false if blocked.
+     * If validHandles is empty, NOTHING is interactive.
+     */
+    private isHandleInteractive(handle: string | undefined): boolean {
+        if (!handle) return false;
+        // validHandles is always a Set (never null) - empty Set means nothing is interactive
+        if (this.validHandles.size === 0) {
+            return false; // Nothing is interactive
+        }
+        const isAllowed = this.validHandles.has(handle.toLowerCase());
+        return isAllowed;
     }
 
     private getIntersectableObjects(): THREE.Object3D[] {
+        if (this.validHandles.size === 0) {
+            return [];
+        }
+
         const now = Date.now();
         if (this.intersectableObjectsCache && (now - this.cacheLastUpdated < this.CACHE_TTL)) {
             return this.intersectableObjectsCache;
@@ -396,7 +420,7 @@ export class EntityInteraction {
         const objects: THREE.Object3D[] = [];
         this.viewer.GetScene().traverse((obj: THREE.Object3D) => {
             if (obj.userData.dxfHandle && obj.parent !== this.interactionLayer) {
-                if (this.validHandles && !this.validHandles.has(obj.userData.dxfHandle.toLowerCase())) {
+                if (!this.validHandles.has(obj.userData.dxfHandle.toLowerCase())) {
                     return;
                 }
                 objects.push(obj);
@@ -429,8 +453,18 @@ export class EntityInteraction {
         const intersects = raycaster.intersectObjects(this.getIntersectableObjects());
 
         let hitObject: THREE.Object3D | null = null;
-        if (intersects.length > 0) {
-            hitObject = this.resolveDxfObject(intersects[0].object);
+        
+        // Find the first valid intersection (checking handle allowlist)
+        for (const intersection of intersects) {
+            const resolved = this.resolveDxfObject(intersection.object);
+            if (resolved) {
+                const handle = resolved.userData.dxfHandle;
+                // Double-check the handle is in the interactive list
+                if (this.isHandleInteractive(handle)) {
+                    hitObject = resolved;
+                    break;
+                }
+            }
         }
 
         if (hitObject) {
@@ -489,8 +523,11 @@ export class EntityInteraction {
 
         if (this.hoveredObject) {
             const handle = this.hoveredObject.userData.dxfHandle;
-            if (this.onClick) {
-                this.onClick(handle);
+            // Double-check the handle is in the interactive list
+            if (this.isHandleInteractive(handle)) {
+                if (this.onClick) {
+                    this.onClick(handle);
+                }
             }
             this.isMouseDown = false;
             this.isDragging = false;
@@ -506,13 +543,14 @@ export class EntityInteraction {
         raycaster.params.Line.threshold = 3.0;
 
         const intersects = raycaster.intersectObjects(this.getIntersectableObjects());
-        if (intersects.length > 0) {
-            const hit = this.resolveDxfObject(intersects[0].object);
+        for (const intersection of intersects) {
+            const hit = this.resolveDxfObject(intersection.object);
             if (hit) {
                 const handle = hit.userData.dxfHandle;
-                if (this.onClick) {
-                    this.onClick(handle);
-                }
+                    if (this.onClick) {
+                        this.onClick(handle);
+                    }
+                    break;
             }
         }
         

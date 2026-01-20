@@ -45,6 +45,12 @@ export declare class EntityInteraction {
     private clearAllOverlays;
     private cleanupOverlayResource;
     setValidHandles(handles: string[] | null): void;
+    /**
+     * Check if a handle is in the valid/interactive handles list.
+     * Returns true if interaction is allowed, false if blocked.
+     * If validHandles is empty, NOTHING is interactive.
+     */
+    private isHandleInteractive;
     private getIntersectableObjects;
     private _onPointerMove;
     private _startHover;
