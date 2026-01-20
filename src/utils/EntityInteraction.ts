@@ -382,7 +382,7 @@ export class EntityInteraction {
         }
     }
 
-    public setValidHandles(handles: string[] | null) {
+    public setValidHandles(handles: string[] | null) {     
         // If handles is null, undefined, or empty array → nothing is interactive
         // Only explicitly passed handles are interactive
         this.validHandles = (handles && handles.length > 0) 
@@ -398,12 +398,15 @@ export class EntityInteraction {
      * If validHandles is empty, NOTHING is interactive.
      */
     private isHandleInteractive(handle: string | undefined): boolean {
-        if (!handle) return false;
+        if (!handle) {
+            return false;
+        }
         // validHandles is always a Set (never null) - empty Set means nothing is interactive
         if (this.validHandles.size === 0) {
             return false; // Nothing is interactive
         }
-        const isAllowed = this.validHandles.has(handle.toLowerCase());
+        const lowerHandle = handle.toLowerCase();
+        const isAllowed = this.validHandles.has(lowerHandle);
         return isAllowed;
     }
 
@@ -547,10 +550,15 @@ export class EntityInteraction {
             const hit = this.resolveDxfObject(intersection.object);
             if (hit) {
                 const handle = hit.userData.dxfHandle;
+                // Verify handle is interactive before triggering click
+                if (this.isHandleInteractive(handle)) {
                     if (this.onClick) {
                         this.onClick(handle);
+                    } else {
+                        console.warn('[EntityInteraction] onClick callback is not defined!');
                     }
                     break;
+                }
             }
         }
         

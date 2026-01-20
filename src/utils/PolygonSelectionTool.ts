@@ -41,6 +41,10 @@ export class PolygonSelectionTool {
   private onComplete: (handles: string[]) => void;
   private onCancel: () => void;
 
+  // Valid handles for filtering - only entities with these handles will be selected
+  // Empty set means nothing is selectable
+  private validHandles: Set<string> = new Set();
+
   private _boundOnPointerDown: (e: PointerEvent) => void;
   private _boundOnPointerMove: (e: PointerEvent) => void;
   private _boundOnKeyDown: (e: KeyboardEvent) => void;
@@ -60,6 +64,30 @@ export class PolygonSelectionTool {
     this._boundOnPointerMove = this._onPointerMove.bind(this);
     this._boundOnKeyDown = this._onKeyDown.bind(this);
     this._boundOnDblClick = this._onDblClick.bind(this);
+  }
+
+  /**
+   * Set the valid handles that can be selected by polygon selection.
+   * If null/undefined or empty array is passed, nothing will be selectable.
+   * @param handles Array of valid handle strings, or null/undefined
+   */
+  public setValidHandles(handles: string[] | null | undefined): void {
+    if (handles && handles.length > 0) {
+      this.validHandles = new Set(handles.map(h => h.toLowerCase()));
+    } else {
+      this.validHandles = new Set(); // Empty = nothing selectable
+    }
+  }
+
+  /**
+   * Check if a handle is in the valid handles list
+   */
+  private isHandleValid(handle: string): boolean {
+    // If no valid handles are set, nothing is valid
+    if (this.validHandles.size === 0) {
+      return false;
+    }
+    return this.validHandles.has(handle.toLowerCase());
   }
 
   public activate() {
@@ -376,17 +404,29 @@ export class PolygonSelectionTool {
   private findEntitiesInPolygon(): string[] {
     const handles: string[] = [];
 
+    // If no valid handles are set, return empty (nothing is selectable)
+    if (this.validHandles.size === 0) {
+      return handles;
+    }
+
     const polygonBox = new THREE.Box3().setFromPoints(this.points);
 
     this.viewer.GetScene().traverse((obj: THREE.Object3D) => {
       if (obj.userData.dxfHandle) {
+        const handle = obj.userData.dxfHandle as string;
+        
+        // Only consider entities that are in the valid handles list
+        if (!this.isHandleValid(handle)) {
+          return; // Skip this entity
+        }
+
         const objBox = getSafeObjectBounds(obj);
         if (objBox && polygonBox.intersectsBox(objBox)) {
           const center = new THREE.Vector3();
           objBox.getCenter(center);
 
           if (this.isPointInPolygon(center)) {
-            handles.push(obj.userData.dxfHandle);
+            handles.push(handle);
           }
         }
       }

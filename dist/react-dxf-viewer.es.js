@@ -1,8 +1,8 @@
 var Me = Object.defineProperty;
-var Ce = (l, e, t) => e in l ? Me(l, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : l[e] = t;
-var f = (l, e, t) => Ce(l, typeof e != "symbol" ? e + "" : e, t);
+var Ce = (c, e, t) => e in c ? Me(c, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : c[e] = t;
+var f = (c, e, t) => Ce(c, typeof e != "symbol" ? e + "" : e, t);
 import Se, { forwardRef as Le, createElement as me, useMemo as Re, useRef as ie, useState as se, useEffect as K, useCallback as J } from "react";
-import * as c from "three";
+import * as l from "three";
 var ue = { exports: {} }, oe = {};
 /**
  * @license React
@@ -17,7 +17,7 @@ var ge;
 function De() {
   if (ge) return oe;
   ge = 1;
-  var l = Symbol.for("react.transitional.element"), e = Symbol.for("react.fragment");
+  var c = Symbol.for("react.transitional.element"), e = Symbol.for("react.fragment");
   function t(n, i, s) {
     var o = null;
     if (s !== void 0 && (o = "" + s), i.key !== void 0 && (o = "" + i.key), "key" in i) {
@@ -26,7 +26,7 @@ function De() {
         a !== "key" && (s[a] = i[a]);
     } else s = i;
     return i = s.ref, {
-      $$typeof: l,
+      $$typeof: c,
       type: n,
       key: o,
       ref: i !== void 0 ? i : null,
@@ -48,23 +48,23 @@ var ae = {};
 var xe;
 function ke() {
   return xe || (xe = 1, process.env.NODE_ENV !== "production" && (function() {
-    function l(r) {
+    function c(r) {
       if (r == null) return null;
       if (typeof r == "function")
         return r.$$typeof === U ? null : r.displayName || r.name || null;
       if (typeof r == "string") return r;
       switch (r) {
-        case R:
+        case D:
           return "Fragment";
-        case G:
+        case k:
           return "Profiler";
-        case A:
+        case H:
           return "StrictMode";
-        case I:
+        case F:
           return "Suspense";
         case W:
           return "SuspenseList";
-        case F:
+        case R:
           return "Activity";
       }
       if (typeof r == "object")
@@ -73,19 +73,19 @@ function ke() {
         ), r.$$typeof) {
           case L:
             return "Portal";
-          case v:
+          case p:
             return r.displayName || "Context";
           case E:
             return (r._context.displayName || "Context") + ".Consumer";
           case N:
-            var p = r.render;
-            return r = r.displayName, r || (r = p.displayName || p.name || "", r = r !== "" ? "ForwardRef(" + r + ")" : "ForwardRef"), r;
-          case D:
-            return p = r.displayName || null, p !== null ? p : l(r.type) || "Memo";
+            var v = r.render;
+            return r = r.displayName, r || (r = v.displayName || v.name || "", r = r !== "" ? "ForwardRef(" + r + ")" : "ForwardRef"), r;
+          case T:
+            return v = r.displayName || null, v !== null ? v : c(r.type) || "Memo";
           case w:
-            p = r._payload, r = r._init;
+            v = r._payload, r = r._init;
             try {
-              return l(r(p));
+              return c(r(v));
             } catch {
             }
         }
@@ -97,50 +97,50 @@ function ke() {
     function t(r) {
       try {
         e(r);
-        var p = !1;
+        var v = !1;
       } catch {
-        p = !0;
+        v = !0;
       }
-      if (p) {
-        p = console;
-        var y = p.error, O = typeof Symbol == "function" && Symbol.toStringTag && r[Symbol.toStringTag] || r.constructor.name || "Object";
+      if (v) {
+        v = console;
+        var y = v.error, O = typeof Symbol == "function" && Symbol.toStringTag && r[Symbol.toStringTag] || r.constructor.name || "Object";
         return y.call(
-          p,
+          v,
           "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
           O
         ), e(r);
       }
     }
     function n(r) {
-      if (r === R) return "<>";
+      if (r === D) return "<>";
       if (typeof r == "object" && r !== null && r.$$typeof === w)
         return "<...>";
       try {
-        var p = l(r);
-        return p ? "<" + p + ">" : "<...>";
+        var v = c(r);
+        return v ? "<" + v + ">" : "<...>";
       } catch {
         return "<...>";
       }
     }
     function i() {
-      var r = B.A;
+      var r = z.A;
       return r === null ? null : r.getOwner();
     }
     function s() {
       return Error("react-stack-top-frame");
     }
     function o(r) {
-      if (z.call(r, "key")) {
-        var p = Object.getOwnPropertyDescriptor(r, "key").get;
-        if (p && p.isReactWarning) return !1;
+      if (G.call(r, "key")) {
+        var v = Object.getOwnPropertyDescriptor(r, "key").get;
+        if (v && v.isReactWarning) return !1;
       }
       return r.key !== void 0;
     }
-    function a(r, p) {
+    function a(r, v) {
       function y() {
-        le || (le = !0, console.error(
+        ce || (ce = !0, console.error(
           "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
-          p
+          v
         ));
       }
       y.isReactWarning = !0, Object.defineProperty(r, "key", {
@@ -148,23 +148,23 @@ function ke() {
         configurable: !0
       });
     }
-    function d() {
-      var r = l(this.type);
+    function u() {
+      var r = c(this.type);
       return ee[r] || (ee[r] = !0, console.error(
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), r = this.props.ref, r !== void 0 ? r : null;
     }
-    function x(r, p, y, O, Z, re) {
+    function x(r, v, y, O, Z, re) {
       var _ = y.ref;
       return r = {
         $$typeof: j,
         type: r,
-        key: p,
+        key: v,
         props: y,
         _owner: O
       }, (_ !== void 0 ? _ : null) !== null ? Object.defineProperty(r, "ref", {
         enumerable: !1,
-        get: d
+        get: u
       }) : Object.defineProperty(r, "ref", { enumerable: !1, value: null }), r._store = {}, Object.defineProperty(r._store, "validated", {
         configurable: !1,
         enumerable: !1,
@@ -187,23 +187,23 @@ function ke() {
         value: re
       }), Object.freeze && (Object.freeze(r.props), Object.freeze(r)), r;
     }
-    function P(r, p, y, O, Z, re) {
-      var _ = p.children;
+    function P(r, v, y, O, Z, re) {
+      var _ = v.children;
       if (_ !== void 0)
         if (O)
           if (Q(_)) {
             for (O = 0; O < _.length; O++)
-              k(_[O]);
+              I(_[O]);
             Object.freeze && Object.freeze(_);
           } else
             console.error(
               "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
             );
-        else k(_);
-      if (z.call(p, "key")) {
-        _ = l(r);
-        var X = Object.keys(p).filter(function(u) {
-          return u !== "key";
+        else I(_);
+      if (G.call(v, "key")) {
+        _ = c(r);
+        var X = Object.keys(v).filter(function(d) {
+          return d !== "key";
         });
         O = 0 < X.length ? "{key: someKey, " + X.join(": ..., ") + ": ...}" : "{key: someKey}", $[_ + O] || (X = 0 < X.length ? "{" + X.join(": ..., ") + ": ...}" : "{}", console.error(
           `A props object containing a "key" prop is being spread into JSX:
@@ -218,11 +218,11 @@ React keys must be passed directly to JSX without using spread:
           _
         ), $[_ + O] = !0);
       }
-      if (_ = null, y !== void 0 && (t(y), _ = "" + y), o(p) && (t(p.key), _ = "" + p.key), "key" in p) {
+      if (_ = null, y !== void 0 && (t(y), _ = "" + y), o(v) && (t(v.key), _ = "" + v.key), "key" in v) {
         y = {};
-        for (var h in p)
-          h !== "key" && (y[h] = p[h]);
-      } else y = p;
+        for (var h in v)
+          h !== "key" && (y[h] = v[h]);
+      } else y = v;
       return _ && a(
         y,
         typeof r == "function" ? r.displayName || r.name || "Unknown" : r
@@ -235,13 +235,13 @@ React keys must be passed directly to JSX without using spread:
         re
       );
     }
-    function k(r) {
+    function I(r) {
       C(r) ? r._store && (r._store.validated = 1) : typeof r == "object" && r !== null && r.$$typeof === w && (r._payload.status === "fulfilled" ? C(r._payload.value) && r._payload.value._store && (r._payload.value._store.validated = 1) : r._store && (r._store.validated = 1));
     }
     function C(r) {
       return typeof r == "object" && r !== null && r.$$typeof === j;
     }
-    var S = Se, j = Symbol.for("react.transitional.element"), L = Symbol.for("react.portal"), R = Symbol.for("react.fragment"), A = Symbol.for("react.strict_mode"), G = Symbol.for("react.profiler"), E = Symbol.for("react.consumer"), v = Symbol.for("react.context"), N = Symbol.for("react.forward_ref"), I = Symbol.for("react.suspense"), W = Symbol.for("react.suspense_list"), D = Symbol.for("react.memo"), w = Symbol.for("react.lazy"), F = Symbol.for("react.activity"), U = Symbol.for("react.client.reference"), B = S.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, z = Object.prototype.hasOwnProperty, Q = Array.isArray, V = console.createTask ? console.createTask : function() {
+    var S = Se, j = Symbol.for("react.transitional.element"), L = Symbol.for("react.portal"), D = Symbol.for("react.fragment"), H = Symbol.for("react.strict_mode"), k = Symbol.for("react.profiler"), E = Symbol.for("react.consumer"), p = Symbol.for("react.context"), N = Symbol.for("react.forward_ref"), F = Symbol.for("react.suspense"), W = Symbol.for("react.suspense_list"), T = Symbol.for("react.memo"), w = Symbol.for("react.lazy"), R = Symbol.for("react.activity"), U = Symbol.for("react.client.reference"), z = S.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, G = Object.prototype.hasOwnProperty, Q = Array.isArray, B = console.createTask ? console.createTask : function() {
       return null;
     };
     S = {
@@ -249,29 +249,29 @@ React keys must be passed directly to JSX without using spread:
         return r();
       }
     };
-    var le, ee = {}, Y = S.react_stack_bottom_frame.bind(
+    var ce, ee = {}, Y = S.react_stack_bottom_frame.bind(
       S,
       s
-    )(), q = V(n(s)), $ = {};
-    ae.Fragment = R, ae.jsx = function(r, p, y) {
-      var O = 1e4 > B.recentlyCreatedOwnerStacks++;
+    )(), q = B(n(s)), $ = {};
+    ae.Fragment = D, ae.jsx = function(r, v, y) {
+      var O = 1e4 > z.recentlyCreatedOwnerStacks++;
       return P(
         r,
-        p,
+        v,
         y,
         !1,
         O ? Error("react-stack-top-frame") : Y,
-        O ? V(n(r)) : q
+        O ? B(n(r)) : q
       );
-    }, ae.jsxs = function(r, p, y) {
-      var O = 1e4 > B.recentlyCreatedOwnerStacks++;
+    }, ae.jsxs = function(r, v, y) {
+      var O = 1e4 > z.recentlyCreatedOwnerStacks++;
       return P(
         r,
-        p,
+        v,
         y,
         !0,
         O ? Error("react-stack-top-frame") : Y,
-        O ? V(n(r)) : q
+        O ? B(n(r)) : q
       );
     };
   })()), ae;
@@ -281,87 +281,87 @@ function Te() {
   return be || (be = 1, process.env.NODE_ENV === "production" ? ue.exports = De() : ue.exports = ke()), ue.exports;
 }
 var b = Te();
-function Oe(l) {
-  const e = l.isLineSegments2;
-  if (!(l instanceof c.Mesh || l instanceof c.Line || l instanceof c.LineSegments || e))
+function Oe(c) {
+  const e = c.isLineSegments2;
+  if (!(c instanceof l.Mesh || c instanceof l.Line || c instanceof l.LineSegments || e))
     return null;
-  const t = l.geometry;
+  const t = c.geometry;
   if (!t) return null;
   if (e) {
-    const d = t.getAttribute("instanceStart"), x = t.getAttribute("instanceEnd");
-    if (!d || !x) {
+    const u = t.getAttribute("instanceStart"), x = t.getAttribute("instanceEnd");
+    if (!u || !x) {
       if (!t.getAttribute("position")) return null;
     } else {
-      const P = new c.Box3();
-      let k = !1;
-      l.updateMatrixWorld(!0);
+      const P = new l.Box3();
+      let I = !1;
+      c.updateMatrixWorld(!0);
       const C = (S) => {
         const j = S.array, L = S.itemSize;
-        for (let R = 0; R < j.length; R += L) {
-          const A = j[R], G = j[R + 1], E = L > 2 ? j[R + 2] : 0;
-          if (isFinite(A) && isFinite(G) && isFinite(E)) {
-            const v = new c.Vector3(A, G, E).applyMatrix4(l.matrixWorld);
-            isFinite(v.x) && isFinite(v.y) && isFinite(v.z) && (P.expandByPoint(v), k = !0);
+        for (let D = 0; D < j.length; D += L) {
+          const H = j[D], k = j[D + 1], E = L > 2 ? j[D + 2] : 0;
+          if (isFinite(H) && isFinite(k) && isFinite(E)) {
+            const p = new l.Vector3(H, k, E).applyMatrix4(c.matrixWorld);
+            isFinite(p.x) && isFinite(p.y) && isFinite(p.z) && (P.expandByPoint(p), I = !0);
           }
         }
       };
-      return C(d), C(x), k ? P : null;
+      return C(u), C(x), I ? P : null;
     }
   }
   const n = t.getAttribute("position");
   if (!n || !n.array) return null;
-  const i = n.array, s = n.itemSize, o = new c.Box3();
+  const i = n.array, s = n.itemSize, o = new l.Box3();
   let a = !1;
-  l.updateMatrixWorld(!0);
-  for (let d = 0; d < i.length; d += s) {
-    const x = i[d], P = i[d + 1], k = s > 2 ? i[d + 2] : 0;
-    if (isFinite(x) && isFinite(P) && isFinite(k)) {
-      const C = new c.Vector3(x, P, k).applyMatrix4(l.matrixWorld);
+  c.updateMatrixWorld(!0);
+  for (let u = 0; u < i.length; u += s) {
+    const x = i[u], P = i[u + 1], I = s > 2 ? i[u + 2] : 0;
+    if (isFinite(x) && isFinite(P) && isFinite(I)) {
+      const C = new l.Vector3(x, P, I).applyMatrix4(c.matrixWorld);
       isFinite(C.x) && isFinite(C.y) && isFinite(C.z) && (o.expandByPoint(C), a = !0);
     }
   }
   return a ? o : null;
 }
-function Ae(l) {
-  const e = new c.Box3();
+function Ie(c) {
+  const e = new l.Box3();
   let t = !1;
-  for (const n of l) {
+  for (const n of c) {
     const i = Oe(n);
     i && !i.isEmpty() && (e.union(i), t = !0);
   }
   return t ? e : null;
 }
-function we(l, e, t) {
+function we(c, e, t) {
   const n = t.getBoundingClientRect();
-  return new c.Vector2(
-    (l - n.left) / n.width * 2 - 1,
+  return new l.Vector2(
+    (c - n.left) / n.width * 2 - 1,
     -((e - n.top) / n.height) * 2 + 1
   );
 }
-function Ie(l, e, t, n) {
-  const i = we(l, e, t), s = new c.Vector3(i.x, i.y, 0);
+function Ae(c, e, t, n) {
+  const i = we(c, e, t), s = new l.Vector3(i.x, i.y, 0);
   return s.unproject(n), s.z = 0, s;
 }
-let T = null;
-async function Fe() {
-  return T || (T = await import("./Line2Helper-D4QmpFuS.js")), T;
+let A = null;
+async function He() {
+  return A || (A = await import("./Line2Helper-D4QmpFuS.js")), A;
 }
-function Pe(l, e, t = 1) {
-  return T ? T.getLineMaterial(l, e, t) : new c.LineBasicMaterial({ color: l, linewidth: e, transparent: !0, opacity: t });
+function Pe(c, e, t = 1) {
+  return A ? A.getLineMaterial(c, e, t) : new l.LineBasicMaterial({ color: c, linewidth: e, transparent: !0, opacity: t });
 }
-function je(l, e, t, n) {
-  return T ? T.createOverlayFromCoordinates(l, e, t, n) : null;
+function Fe(c, e, t, n) {
+  return A ? A.createOverlayFromCoordinates(c, e, t, n) : null;
 }
-function Ne(l, e) {
-  return T ? T.createOverlay(l, e) : null;
+function je(c, e) {
+  return A ? A.createOverlay(c, e) : null;
 }
-function He(l, e) {
-  T && T.updateResolution(l, e);
+function Ne(c, e) {
+  A && A.updateResolution(c, e);
 }
-function Ge() {
-  T && T.clearLineMaterialCache();
+function Ve() {
+  A && A.clearLineMaterialCache();
 }
-class Be {
+class ze {
   constructor(e, t) {
     f(this, "viewer");
     f(this, "hoveredObject", null);
@@ -386,7 +386,7 @@ class Be {
     f(this, "animationFrameId", null);
     f(this, "_boundOnLoaded");
     f(this, "_boundOnCleared");
-    this.viewer = e, this.onClick = t, this.interactionLayer = new c.Group(), this.interactionLayer.name = "InteractionLayer", this.interactionLayer.renderOrder = 999, this.viewer.GetScene().add(this.interactionLayer), this.updateResolution(), this._boundOnPointerMove = this._onPointerMove.bind(this), this._boundOnPointerLeave = this._onPointerLeave.bind(this), this._boundOnPointerDown = this._onPointerDown.bind(this), this._boundOnPointerUp = this._onPointerUp.bind(this), this._boundOnViewChanged = this.updateResolution.bind(this), this._boundOnLoaded = this._onLoaded.bind(this), this._boundOnCleared = this._onCleared.bind(this), this.setupEventListeners(), this.initLine2Helper();
+    this.viewer = e, this.onClick = t, this.interactionLayer = new l.Group(), this.interactionLayer.name = "InteractionLayer", this.interactionLayer.renderOrder = 999, this.viewer.GetScene().add(this.interactionLayer), this.updateResolution(), this._boundOnPointerMove = this._onPointerMove.bind(this), this._boundOnPointerLeave = this._onPointerLeave.bind(this), this._boundOnPointerDown = this._onPointerDown.bind(this), this._boundOnPointerUp = this._onPointerUp.bind(this), this._boundOnViewChanged = this.updateResolution.bind(this), this._boundOnLoaded = this._onLoaded.bind(this), this._boundOnCleared = this._onCleared.bind(this), this.setupEventListeners(), this.initLine2Helper();
   }
   _onLoaded() {
     this.viewer.GetScene().add(this.interactionLayer), this.dxfEntities = null, this.clearHighlights();
@@ -395,11 +395,11 @@ class Be {
     this.clearHighlights(), this.dxfEntities = null, this.intersectableObjectsCache = null;
   }
   async initLine2Helper() {
-    await Fe();
+    await He();
   }
   updateResolution() {
     const e = this.viewer.GetCanvas();
-    e && He(e.width, e.height);
+    e && Ne(e.width, e.height);
   }
   setEnabled(e) {
     this.isEnabled = e, e || (this._clearHover(), this.clearHighlights());
@@ -410,7 +410,7 @@ class Be {
   }
   destroy() {
     const e = this.viewer.GetCanvas();
-    e && (e.removeEventListener("pointermove", this._boundOnPointerMove), e.removeEventListener("pointerleave", this._boundOnPointerLeave), e.removeEventListener("pointerdown", this._boundOnPointerDown), e.removeEventListener("pointerup", this._boundOnPointerUp)), this.viewer.Unsubscribe("pointerdown", this._boundOnPointerDown), this.viewer.Unsubscribe("resized", this._boundOnViewChanged), this.viewer.Unsubscribe("loaded", this._boundOnLoaded), this.viewer.Unsubscribe("cleared", this._boundOnCleared), this._clearHover(), this.clearHighlights(), Ge(), this.animationFrameId !== null && (cancelAnimationFrame(this.animationFrameId), this.animationFrameId = null), this.viewer.GetScene().remove(this.interactionLayer);
+    e && (e.removeEventListener("pointermove", this._boundOnPointerMove), e.removeEventListener("pointerleave", this._boundOnPointerLeave), e.removeEventListener("pointerdown", this._boundOnPointerDown), e.removeEventListener("pointerup", this._boundOnPointerUp)), this.viewer.Unsubscribe("pointerdown", this._boundOnPointerDown), this.viewer.Unsubscribe("resized", this._boundOnViewChanged), this.viewer.Unsubscribe("loaded", this._boundOnLoaded), this.viewer.Unsubscribe("cleared", this._boundOnCleared), this._clearHover(), this.clearHighlights(), Ve(), this.animationFrameId !== null && (cancelAnimationFrame(this.animationFrameId), this.animationFrameId = null), this.viewer.GetScene().remove(this.interactionLayer);
   }
   resolveDxfObject(e) {
     let t = e;
@@ -472,10 +472,10 @@ class Be {
     if (!o || this.activeOverlays.has(o)) return !1;
     o.updateMatrixWorld(!0);
     let a = null;
-    const d = o.userData.dxfHandle, x = s ? null : this.getGeometryFromHandle(d);
+    const u = o.userData.dxfHandle, x = s ? null : this.getGeometryFromHandle(u);
     if (x) {
       const P = Pe(t, n, i);
-      a = je(
+      a = Fe(
         x.vertices,
         P,
         x.isClosed,
@@ -483,9 +483,9 @@ class Be {
       );
     }
     if (!a) {
-      if (o instanceof c.LineSegments || o instanceof c.Line)
+      if (o instanceof l.LineSegments || o instanceof l.Line)
         if (s) {
-          const P = new c.LineBasicMaterial({
+          const P = new l.LineBasicMaterial({
             color: t,
             linewidth: 1,
             depthTest: !1,
@@ -495,10 +495,10 @@ class Be {
           a = o.clone(), a.material = P, a.renderOrder = 999;
         } else {
           const P = Pe(t, n, i);
-          a = Ne(o, P);
+          a = je(o, P);
         }
-      else if (o instanceof c.Mesh) {
-        const P = new c.MeshBasicMaterial({
+      else if (o instanceof l.Mesh) {
+        const P = new l.MeshBasicMaterial({
           color: t,
           transparent: !0,
           opacity: i,
@@ -539,7 +539,10 @@ class Be {
    * If validHandles is empty, NOTHING is interactive.
    */
   isHandleInteractive(e) {
-    return !e || this.validHandles.size === 0 ? !1 : this.validHandles.has(e.toLowerCase());
+    if (!e || this.validHandles.size === 0)
+      return !1;
+    const t = e.toLowerCase();
+    return this.validHandles.has(t);
   }
   getIntersectableObjects() {
     if (this.validHandles.size === 0)
@@ -564,16 +567,16 @@ class Be {
       this._clearHover();
       return;
     }
-    const n = we(e.clientX, e.clientY, t), i = new c.Raycaster();
+    const n = we(e.clientX, e.clientY, t), i = new l.Raycaster();
     i.setFromCamera(n, this.viewer.GetCamera()), i.params.Line.threshold = 6;
     const s = i.intersectObjects(this.getIntersectableObjects());
     let o = null;
     for (const a of s) {
-      const d = this.resolveDxfObject(a.object);
-      if (d) {
-        const x = d.userData.dxfHandle;
+      const u = this.resolveDxfObject(a.object);
+      if (u) {
+        const x = u.userData.dxfHandle;
         if (this.isHandleInteractive(x)) {
-          o = d;
+          o = u;
           break;
         }
       }
@@ -609,15 +612,17 @@ class Be {
     }
     const t = this.viewer.GetCanvas();
     if (!t) return;
-    const n = we(e.clientX, e.clientY, t), i = new c.Raycaster();
+    const n = we(e.clientX, e.clientY, t), i = new l.Raycaster();
     i.setFromCamera(n, this.viewer.GetCamera()), i.params.Line.threshold = 3;
     const s = i.intersectObjects(this.getIntersectableObjects());
     for (const o of s) {
       const a = this.resolveDxfObject(o.object);
       if (a) {
-        const d = a.userData.dxfHandle;
-        this.onClick && this.onClick(d);
-        break;
+        const u = a.userData.dxfHandle;
+        if (this.isHandleInteractive(u)) {
+          this.onClick ? this.onClick(u) : console.warn("[EntityInteraction] onClick callback is not defined!");
+          break;
+        }
       }
     }
     this.isMouseDown = !1, this.isDragging = !1;
@@ -650,26 +655,26 @@ class Be {
     e.forEach((a) => this.selectedHandles.add(a.toLowerCase())), t.length > 0 && this.highlightContext(t);
     const s = [];
     if (this.viewer.GetScene().traverse((a) => {
-      const d = a.userData.dxfHandle;
-      d && i.includes(d.toLowerCase()) && a.parent !== this.interactionLayer && ((a instanceof c.LineSegments || a instanceof c.Line) && a.geometry && !a.geometry.boundingBox && a.geometry.computeBoundingBox(), s.push(a));
+      const u = a.userData.dxfHandle;
+      u && i.includes(u.toLowerCase()) && a.parent !== this.interactionLayer && ((a instanceof l.LineSegments || a instanceof l.Line) && a.geometry && !a.geometry.boundingBox && a.geometry.computeBoundingBox(), s.push(a));
     }), s.length === 0) return;
     s.forEach((a) => {
-      const d = a.userData.dxfType;
-      (d === "TEXT" || d === "MTEXT" || d === "ATTRIB") && a instanceof c.LineSegments ? this.addOverlay(a, 39423, 2, 1, !0) : this.addOverlay(a, 39423, 5);
+      const u = a.userData.dxfType;
+      (u === "TEXT" || u === "MTEXT" || u === "ATTRIB") && a instanceof l.LineSegments ? this.addOverlay(a, 39423, 2, 1, !0) : this.addOverlay(a, 39423, 5);
     }), this.viewer.Render();
-    const o = Ae(s);
+    const o = Ie(s);
     !o || o.isEmpty() || (t.length === 0 && this.highlightContextInBounds(o, Array.from(this.selectedHandles)), this.createBoundingBoxOverlay(o), n && this.animateToFit(o, 800));
   }
   highlightContextInBounds(e, t) {
-    const n = e.clone(), i = new c.Vector3();
+    const n = e.clone(), i = new l.Vector3();
     e.getSize(i), n.expandByVector(i.multiplyScalar(0.1));
     const s = t.map((o) => o.toLowerCase());
     this.viewer.GetScene().traverse((o) => {
       if (o.parent === this.interactionLayer) return;
       const a = o.userData.dxfHandle;
-      if (a && s.includes(a.toLowerCase()) || !(o instanceof c.Mesh || o instanceof c.Line || o instanceof c.LineSegments)) return;
-      const d = new c.Vector3();
-      o.getWorldPosition(d), n.containsPoint(d) && this.addOverlay(o, 13421772, 2);
+      if (a && s.includes(a.toLowerCase()) || !(o instanceof l.Mesh || o instanceof l.Line || o instanceof l.LineSegments)) return;
+      const u = new l.Vector3();
+      o.getWorldPosition(u), n.containsPoint(u) && this.addOverlay(o, 13421772, 2);
     }), this.viewer.Render();
   }
   clearHighlights() {
@@ -679,24 +684,24 @@ class Be {
     if (e.isEmpty() || !isFinite(e.min.x) || !isFinite(e.min.y) || !isFinite(e.min.z) || !isFinite(e.max.x) || !isFinite(e.max.y) || !isFinite(e.max.z))
       return;
     this.boundingBoxMesh && (this.cleanupOverlayResource(this.boundingBoxMesh), this.boundingBoxMesh = null);
-    const t = new c.Vector3(), n = new c.Vector3();
+    const t = new l.Vector3(), n = new l.Vector3();
     e.getSize(t), e.getCenter(n);
     const i = 10;
     t.x < i && (t.x = i), t.y < i && (t.y = i), t.z < i && (t.z = i);
     try {
-      const s = new c.BoxGeometry(t.x, t.y, t.z), o = new c.MeshBasicMaterial({
+      const s = new l.BoxGeometry(t.x, t.y, t.z), o = new l.MeshBasicMaterial({
         color: 9647082,
         transparent: !0,
         opacity: 0.2,
-        side: c.DoubleSide,
+        side: l.DoubleSide,
         depthTest: !1
       });
-      this.boundingBoxMesh = new c.Mesh(s, o), this.boundingBoxMesh.position.copy(n);
-      const a = new c.EdgesGeometry(s), d = new c.LineBasicMaterial({
+      this.boundingBoxMesh = new l.Mesh(s, o), this.boundingBoxMesh.position.copy(n);
+      const a = new l.EdgesGeometry(s), u = new l.LineBasicMaterial({
         color: 9647082,
         linewidth: 2,
         depthTest: !1
-      }), x = new c.LineSegments(a, d);
+      }), x = new l.LineSegments(a, u);
       this.boundingBoxMesh.add(x), this.viewer.GetScene().add(this.boundingBoxMesh), this.viewer.Render();
     } catch (s) {
       console.error("[EntityInteraction] Error creating bounding box overlay:", s);
@@ -706,13 +711,13 @@ class Be {
     this.animationFrameId !== null && (cancelAnimationFrame(this.animationFrameId), this.animationFrameId = null);
     const n = this.viewer.GetOrigin();
     if (e.isEmpty() || !isFinite(e.min.x) || !isFinite(e.min.y)) return;
-    const i = new c.Vector3(), s = new c.Vector3();
+    const i = new l.Vector3(), s = new l.Vector3();
     e.getSize(i), e.getCenter(s);
-    const o = s.x - n.x, a = s.y - n.y, d = this.viewer.GetCanvas(), x = d ? d.width : 800, P = d ? d.height : 600, k = x / P, C = 1.5;
+    const o = s.x - n.x, a = s.y - n.y, u = this.viewer.GetCanvas(), x = u ? u.width : 800, P = u ? u.height : 600, I = x / P, C = 1.5;
     let S = i.x * C;
-    i.y * C * k > S && (S = i.y * C * k), S = Math.max(S, 30);
+    i.y * C * I > S && (S = i.y * C * I), S = Math.max(S, 30);
     let L = null;
-    const R = performance.now(), A = (G) => {
+    const D = performance.now(), H = (k) => {
       if (!L) {
         const w = this.viewer.GetCamera();
         if (!isFinite(w.position.x) || !isFinite(w.zoom)) {
@@ -728,13 +733,13 @@ class Be {
           return;
         }
       }
-      const E = G - R, v = Math.min(E / t, 1), N = v < 0.5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2, I = L.cx + (o - L.cx) * N, W = L.cy + (a - L.cy) * N, D = L.vw + (S - L.vw) * N;
-      this.viewer.SetView({ x: I + n.x, y: W + n.y }, D), this.viewer.Render(), v < 1 ? this.animationFrameId = requestAnimationFrame(A) : this.animationFrameId = null;
+      const E = k - D, p = Math.min(E / t, 1), N = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2, F = L.cx + (o - L.cx) * N, W = L.cy + (a - L.cy) * N, T = L.vw + (S - L.vw) * N;
+      this.viewer.SetView({ x: F + n.x, y: W + n.y }, T), this.viewer.Render(), p < 1 ? this.animationFrameId = requestAnimationFrame(H) : this.animationFrameId = null;
     };
-    this.animationFrameId = requestAnimationFrame(A);
+    this.animationFrameId = requestAnimationFrame(H);
   }
 }
-const ze = 40, Ve = 10, We = 20, pe = 7, ce = 16711680, Ue = 16733525, Ye = 16711680, $e = 3, ne = 999, ve = !1;
+const Ge = 40, Be = 10, We = 20, ve = 7, le = 16711680, Ue = 16733525, Ye = 16711680, $e = 3, ne = 999, pe = !1;
 class Xe {
   constructor(e, t, n) {
     f(this, "viewer");
@@ -745,12 +750,15 @@ class Xe {
     f(this, "polygonLine", null);
     f(this, "pointsMesh", null);
     f(this, "startPointMesh", null);
-    f(this, "mousePosition", new c.Vector3());
+    f(this, "mousePosition", new l.Vector3());
     f(this, "completedPolygonLine", null);
     f(this, "completedPointsMesh", null);
     f(this, "isHoveringNearStart", !1);
     f(this, "onComplete");
     f(this, "onCancel");
+    // Valid handles for filtering - only entities with these handles will be selected
+    // Empty set means nothing is selectable
+    f(this, "validHandles", /* @__PURE__ */ new Set());
     f(this, "_boundOnPointerDown");
     f(this, "_boundOnPointerMove");
     f(this, "_boundOnKeyDown");
@@ -760,6 +768,20 @@ class Xe {
     if (!i)
       throw new Error("Canvas not available");
     this.canvas = i, this.onComplete = t, this.onCancel = n, this._boundOnPointerDown = this._onPointerDown.bind(this), this._boundOnPointerMove = this._onPointerMove.bind(this), this._boundOnKeyDown = this._onKeyDown.bind(this), this._boundOnDblClick = this._onDblClick.bind(this);
+  }
+  /**
+   * Set the valid handles that can be selected by polygon selection.
+   * If null/undefined or empty array is passed, nothing will be selectable.
+   * @param handles Array of valid handle strings, or null/undefined
+   */
+  setValidHandles(e) {
+    e && e.length > 0 ? this.validHandles = new Set(e.map((t) => t.toLowerCase())) : this.validHandles = /* @__PURE__ */ new Set();
+  }
+  /**
+   * Check if a handle is in the valid handles list
+   */
+  isHandleValid(e) {
+    return this.validHandles.size === 0 ? !1 : this.validHandles.has(e.toLowerCase());
   }
   activate() {
     this.isActive || (this.isActive = !0, this.points = [], this.canvas.style.cursor = "crosshair", this.canvas.addEventListener("pointerdown", this._boundOnPointerDown, { capture: !0 }), this.canvas.addEventListener("pointermove", this._boundOnPointerMove), window.addEventListener("keydown", this._boundOnKeyDown), this.canvas.addEventListener("dblclick", this._boundOnDblClick, { capture: !0 }));
@@ -781,7 +803,7 @@ class Xe {
   }
   getSnapThreshold() {
     const e = this.viewer.GetCamera(), n = (e.right - e.left) / e.zoom / this.canvas.width;
-    return ze * n;
+    return Ge * n;
   }
   isNearStartPoint(e) {
     if (this.points.length < 3)
@@ -790,7 +812,7 @@ class Xe {
     return n < i;
   }
   _getWorldPosition(e) {
-    return Ie(e.clientX, e.clientY, this.canvas, this.viewer.GetCamera());
+    return Ae(e.clientX, e.clientY, this.canvas, this.viewer.GetCamera());
   }
   _onPointerDown(e) {
     if (e.button !== 0) return;
@@ -820,25 +842,25 @@ class Xe {
   }
   drawRegularPoints(e) {
     if (this.points.length <= 1) return;
-    const t = new c.BufferGeometry().setFromPoints(this.points.slice(1)), n = new c.PointsMaterial({
-      color: ce,
-      size: pe,
-      sizeAttenuation: ve
+    const t = new l.BufferGeometry().setFromPoints(this.points.slice(1)), n = new l.PointsMaterial({
+      color: le,
+      size: ve,
+      sizeAttenuation: pe
     });
-    this.pointsMesh = new c.Points(t, n), this.pointsMesh.renderOrder = ne, e.add(this.pointsMesh);
+    this.pointsMesh = new l.Points(t, n), this.pointsMesh.renderOrder = ne, e.add(this.pointsMesh);
   }
   drawStartPoint(e) {
-    const t = this.isHoveringNearStart ? Ue : ce, n = new c.BufferGeometry().setFromPoints([this.points[0]]), i = new c.PointsMaterial({
+    const t = this.isHoveringNearStart ? Ue : le, n = new l.BufferGeometry().setFromPoints([this.points[0]]), i = new l.PointsMaterial({
       color: t,
-      size: pe,
-      sizeAttenuation: ve
+      size: ve,
+      sizeAttenuation: pe
     });
-    this.startPointMesh = new c.Points(n, i), this.startPointMesh.renderOrder = ne, e.add(this.startPointMesh);
+    this.startPointMesh = new l.Points(n, i), this.startPointMesh.renderOrder = ne, e.add(this.startPointMesh);
   }
   drawPolygonLine(e) {
     if (this.points.length <= 1) return;
-    const t = new c.BufferGeometry().setFromPoints(this.points), n = new c.LineBasicMaterial({ color: ce });
-    this.polygonLine = new c.Line(t, n), this.polygonLine.renderOrder = ne, e.add(this.polygonLine);
+    const t = new l.BufferGeometry().setFromPoints(this.points), n = new l.LineBasicMaterial({ color: le });
+    this.polygonLine = new l.Line(t, n), this.polygonLine.renderOrder = ne, e.add(this.polygonLine);
   }
   clearDrawingVisualsOnly() {
     const e = this.viewer.GetScene();
@@ -849,10 +871,10 @@ class Xe {
     const e = this.viewer.GetScene();
     this.clearPreviewLine(e);
     const t = this.points[this.points.length - 1], n = this.calculatePreviewEndPoint(), i = this.createPreviewMaterial();
-    this.previewLine = new c.Line(
-      new c.BufferGeometry().setFromPoints([t, n]),
+    this.previewLine = new l.Line(
+      new l.BufferGeometry().setFromPoints([t, n]),
       i
-    ), i instanceof c.LineDashedMaterial && this.previewLine.computeLineDistances(), this.previewLine.renderOrder = ne, e.add(this.previewLine), this.viewer.Render();
+    ), i instanceof l.LineDashedMaterial && this.previewLine.computeLineDistances(), this.previewLine.renderOrder = ne, e.add(this.previewLine), this.viewer.Render();
   }
   clearPreviewLine(e) {
     this.previewLine && (e.remove(this.previewLine), this.previewLine.geometry.dispose(), this.previewLine.material.dispose(), this.previewLine = null);
@@ -861,9 +883,9 @@ class Xe {
     return this.isHoveringNearStart && this.points.length >= 3 ? this.points[0] : this.mousePosition;
   }
   createPreviewMaterial() {
-    return new c.LineDashedMaterial({
+    return new l.LineDashedMaterial({
       color: Ye,
-      dashSize: Ve,
+      dashSize: Be,
       gapSize: We,
       transparent: !1
     });
@@ -880,28 +902,34 @@ class Xe {
   createCompletedPolygonBoundary() {
     const e = this.viewer.GetScene();
     this.completedPolygonLine && e.remove(this.completedPolygonLine), this.completedPointsMesh && e.remove(this.completedPointsMesh);
-    const t = new c.BufferGeometry().setFromPoints(this.points), n = new c.PointsMaterial({
-      color: ce,
-      size: pe,
-      sizeAttenuation: ve
+    const t = new l.BufferGeometry().setFromPoints(this.points), n = new l.PointsMaterial({
+      color: le,
+      size: ve,
+      sizeAttenuation: pe
     });
-    this.completedPointsMesh = new c.Points(t, n), this.completedPointsMesh.renderOrder = ne, this.completedPointsMesh.name = "completed-polygon-points", e.add(this.completedPointsMesh);
-    const i = new c.BufferGeometry().setFromPoints(this.points), s = new c.LineBasicMaterial({
-      color: ce
+    this.completedPointsMesh = new l.Points(t, n), this.completedPointsMesh.renderOrder = ne, this.completedPointsMesh.name = "completed-polygon-points", e.add(this.completedPointsMesh);
+    const i = new l.BufferGeometry().setFromPoints(this.points), s = new l.LineBasicMaterial({
+      color: le
     });
-    this.completedPolygonLine = new c.LineLoop(i, s), this.completedPolygonLine.renderOrder = ne, this.completedPolygonLine.name = "completed-polygon-boundary", e.add(this.completedPolygonLine), this.viewer.Render();
+    this.completedPolygonLine = new l.LineLoop(i, s), this.completedPolygonLine.renderOrder = ne, this.completedPolygonLine.name = "completed-polygon-boundary", e.add(this.completedPolygonLine), this.viewer.Render();
   }
   cancelSelection() {
     this.onCancel(), this.deactivate();
   }
   findEntitiesInPolygon() {
-    const e = [], t = new c.Box3().setFromPoints(this.points);
+    const e = [];
+    if (this.validHandles.size === 0)
+      return e;
+    const t = new l.Box3().setFromPoints(this.points);
     return this.viewer.GetScene().traverse((n) => {
       if (n.userData.dxfHandle) {
-        const i = Oe(n);
-        if (i && t.intersectsBox(i)) {
-          const s = new c.Vector3();
-          i.getCenter(s), this.isPointInPolygon(s) && e.push(n.userData.dxfHandle);
+        const i = n.userData.dxfHandle;
+        if (!this.isHandleValid(i))
+          return;
+        const s = Oe(n);
+        if (s && t.intersectsBox(s)) {
+          const o = new l.Vector3();
+          s.getCenter(o), this.isPointInPolygon(o) && e.push(i);
         }
       }
     }), e;
@@ -909,8 +937,8 @@ class Xe {
   isPointInPolygon(e) {
     let t = !1;
     for (let n = 0, i = this.points.length - 1; n < this.points.length; i = n++) {
-      const s = this.points[n].x, o = this.points[n].y, a = this.points[i].x, d = this.points[i].y;
-      o > e.y != d > e.y && e.x < (a - s) * (e.y - o) / (d - o) + s && (t = !t);
+      const s = this.points[n].x, o = this.points[n].y, a = this.points[i].x, u = this.points[i].y;
+      o > e.y != u > e.y && e.x < (a - s) * (e.y - o) / (u - o) + s && (t = !t);
     }
     return t;
   }
@@ -921,7 +949,7 @@ class Xe {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const qe = (l) => l.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), _e = (...l) => l.filter((e, t, n) => !!e && e.trim() !== "" && n.indexOf(e) === t).join(" ").trim();
+const qe = (c) => c.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(), _e = (...c) => c.filter((e, t, n) => !!e && e.trim() !== "" && n.indexOf(e) === t).join(" ").trim();
 /**
  * @license lucide-react v0.469.0 - ISC
  *
@@ -947,7 +975,7 @@ var Ze = {
  */
 const Je = Le(
   ({
-    color: l = "currentColor",
+    color: c = "currentColor",
     size: e = 24,
     strokeWidth: t = 2,
     absoluteStrokeWidth: n,
@@ -955,14 +983,14 @@ const Je = Le(
     children: s,
     iconNode: o,
     ...a
-  }, d) => me(
+  }, u) => me(
     "svg",
     {
-      ref: d,
+      ref: u,
       ...Ze,
       width: e,
       height: e,
-      stroke: l,
+      stroke: c,
       strokeWidth: n ? Number(t) * 24 / Number(e) : t,
       className: _e("lucide", i),
       ...a
@@ -979,16 +1007,16 @@ const Je = Le(
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const fe = (l, e) => {
+const fe = (c, e) => {
   const t = Le(
     ({ className: n, ...i }, s) => me(Je, {
       ref: s,
       iconNode: e,
-      className: _e(`lucide-${qe(l)}`, n),
+      className: _e(`lucide-${qe(c)}`, n),
       ...i
     })
   );
-  return t.displayName = `${l}`, t;
+  return t.displayName = `${c}`, t;
 };
 /**
  * @license lucide-react v0.469.0 - ISC
@@ -1047,18 +1075,18 @@ const tt = fe("ZoomOut", [
   ["line", { x1: "21", x2: "16.65", y1: "21", y2: "16.65", key: "13gj7c" }],
   ["line", { x1: "8", x2: "14", y1: "11", y2: "11", key: "durymu" }]
 ]);
-function de(l) {
-  const e = ie(l);
+function de(c) {
+  const e = ie(c);
   return K(() => {
-    e.current = l;
-  }, [l]), e;
+    e.current = c;
+  }, [c]), e;
 }
-function he({ onClick: l, active: e, title: t, children: n }) {
+function he({ onClick: c, active: e, title: t, children: n }) {
   return /* @__PURE__ */ b.jsx(
     "button",
     {
       className: `dxf-toolbar-btn ${e ? "dxf-toolbar-btn-active" : ""}`,
-      onClick: l,
+      onClick: c,
       title: t,
       type: "button",
       children: n
@@ -1066,7 +1094,7 @@ function he({ onClick: l, active: e, title: t, children: n }) {
   );
 }
 function rt({
-  file: l,
+  file: c,
   url: e,
   fileName: t = "drawing.dxf",
   fonts: n,
@@ -1075,181 +1103,181 @@ function rt({
   selectedHandles: s = [],
   visibleHandles: o = null,
   filteredHandles: a = null,
-  interactiveHandles: d = null,
+  interactiveHandles: u = null,
   isPolygonMode: x = !1,
   // Outputs
   onLoad: P,
-  onError: k,
+  onError: I,
   onSelectionChange: C,
   onPolygonModeChange: S,
   // Options
   showToolbar: j = !0,
   enablePolygonSelection: L = !0,
-  enableInteraction: R = !0,
-  enableZoomOnSelect: A = !0
+  enableInteraction: D = !0,
+  enableZoomOnSelect: H = !0
 }) {
-  const G = Re(
-    () => d ?? o,
-    [d, o]
-  ), E = de(C), v = de(S), N = de(P), I = de(k), W = ie(null), D = ie(null), w = ie(null), F = ie(null), U = ie(!1), [B, z] = se(!1), [Q, V] = se(!0), [le, ee] = se("Initializing..."), [Y, q] = se(null), [$, r] = se(null);
+  const k = Re(
+    () => u ?? o,
+    [u, o]
+  ), E = de(C), p = de(S), N = de(P), F = de(I), W = ie(null), T = ie(null), w = ie(null), R = ie(null), U = ie(!1), [z, G] = se(!1), [Q, B] = se(!0), [ce, ee] = se("Initializing..."), [Y, q] = se(null), [$, r] = se(null);
   K(() => {
-    z(x);
+    G(x);
   }, [x]), K(() => {
     typeof window > "u" || import("./index-eV3yEHKa.js").then((h) => {
       r(() => h.DxfViewer);
     }).catch((h) => {
-      console.error("Failed to load DxfViewer:", h), q(h instanceof Error ? h : new Error(String(h))), V(!1);
+      console.error("Failed to load DxfViewer:", h), q(h instanceof Error ? h : new Error(String(h))), B(!1);
     });
   }, []);
-  const p = J(() => {
+  const v = J(() => {
     var h;
     if (!W.current || !$) return null;
-    if (D.current) {
+    if (T.current) {
       try {
-        D.current.Destroy();
-      } catch (u) {
-        console.warn("Error destroying viewer:", u);
+        T.current.Destroy();
+      } catch (d) {
+        console.warn("Error destroying viewer:", d);
       }
-      D.current = null;
+      T.current = null;
     }
     try {
-      const u = {
+      const d = {
         autoResize: !0,
-        clearColor: new c.Color("#ffffff"),
+        clearColor: new l.Color("#ffffff"),
         clearAlpha: 1,
         antialias: !0,
         colorCorrection: !0,
         blackWhiteInversion: !0
-      }, m = new $(W.current, u);
+      }, m = new $(W.current, d);
       if (!m.HasRenderer())
         throw new Error("WebGL not available. Please check your browser supports WebGL.");
-      return D.current = m, m.Subscribe("loaded", () => {
+      return T.current = m, m.Subscribe("loaded", () => {
         var M;
         console.log("DXF loaded successfully");
         const g = m.GetBounds();
         if (g) {
-          const H = m.GetOrigin();
+          const V = m.GetOrigin();
           m.FitView(
-            g.minX - H.x,
-            g.maxX - H.x,
-            g.minY - H.y,
-            g.maxY - H.y,
+            g.minX - V.x,
+            g.maxX - V.x,
+            g.minY - V.y,
+            g.maxY - V.y,
             0.1
           );
         }
-        m.Render(), V(!1), (M = N.current) == null || M.call(N);
+        m.Render(), B(!1), (M = N.current) == null || M.call(N);
       }), m.Subscribe("message", (g) => {
-        const { message: M, level: H } = g.detail;
-        H === "error" ? console.error("[DxfViewer]", M) : H === "warn" && console.warn("[DxfViewer]", M);
+        const { message: M, level: V } = g.detail;
+        V === "error" ? console.error("[DxfViewer]", M) : V === "warn" && console.warn("[DxfViewer]", M);
       }), m;
-    } catch (u) {
-      const m = u instanceof Error ? u : new Error(String(u));
-      return q(m), V(!1), (h = I.current) == null || h.call(I, m), null;
+    } catch (d) {
+      const m = d instanceof Error ? d : new Error(String(d));
+      return q(m), B(!1), (h = F.current) == null || h.call(F, m), null;
     }
-  }, [$, N, I]), y = J(
-    async (h, u) => {
+  }, [$, N, F]), y = J(
+    async (h, d) => {
       var m;
-      V(!0), q(null), ee("Loading...");
+      B(!0), q(null), ee("Loading...");
       try {
         let g;
-        if (typeof u == "string")
-          g = u;
+        if (typeof d == "string")
+          g = d;
         else {
-          const M = new Blob([u], { type: "application/octet-stream" });
+          const M = new Blob([d], { type: "application/octet-stream" });
           g = URL.createObjectURL(M);
         }
         await h.Load({
           url: g,
           fonts: n ?? null,
-          progressCbk: (M, H, ye) => {
+          progressCbk: (M, V, ye) => {
             let te = M;
-            if (M === "fetch" ? te = "Downloading..." : M === "parse" ? te = "Parsing DXF..." : M === "prepare" ? te = "Preparing scene..." : M === "font" && (te = "Loading fonts..."), ye && H) {
-              const Ee = Math.round(H / ye * 100);
+            if (M === "fetch" ? te = "Downloading..." : M === "parse" ? te = "Parsing DXF..." : M === "prepare" ? te = "Preparing scene..." : M === "font" && (te = "Loading fonts..."), ye && V) {
+              const Ee = Math.round(V / ye * 100);
               ee(`${te} ${Ee}%`);
             } else
               ee(te);
           }
-        }), typeof u != "string" && URL.revokeObjectURL(g);
+        }), typeof d != "string" && URL.revokeObjectURL(g);
       } catch (g) {
         const M = g instanceof Error ? g : new Error(String(g));
-        console.error("Failed to load DXF:", M), q(M), V(!1), (m = I.current) == null || m.call(I, M);
+        console.error("Failed to load DXF:", M), q(M), B(!1), (m = F.current) == null || m.call(F, M);
       }
     },
-    [n, I]
+    [n, F]
   );
   K(() => {
     if (!$ || !W.current) return;
-    const h = p();
+    const h = v();
     if (h)
-      return R && (w.current = new Be(h, (u) => {
+      return D && (w.current = new ze(h, (d) => {
         var m, g;
-        z(!1), (m = v.current) == null || m.call(v, !1), U.current = !1, (g = E.current) == null || g.call(E, [u]);
-      })), L && (F.current = new Xe(
+        G(!1), (m = p.current) == null || m.call(p, !1), U.current = !1, (g = E.current) == null || g.call(E, [d]);
+      }), k && w.current.setValidHandles(k)), L && (R.current = new Xe(
         h,
-        (u) => {
+        (d) => {
           var m, g;
-          z(!1), (m = v.current) == null || m.call(v, !1), U.current = !0, (g = E.current) == null || g.call(E, u, { isPolygonSelection: !0 });
+          G(!1), (m = p.current) == null || m.call(p, !1), U.current = !0, (g = E.current) == null || g.call(E, d, { isPolygonSelection: !0 });
         },
         () => {
-          var u;
-          z(!1), (u = v.current) == null || u.call(v, !1);
+          var d;
+          G(!1), (d = p.current) == null || d.call(p, !1);
         }
-      )), l ? y(h, l) : e && y(h, e), () => {
-        var u, m;
-        if ((u = w.current) == null || u.destroy(), w.current = null, (m = F.current) == null || m.deactivate(), F.current = null, D.current) {
+      ), k && R.current.setValidHandles(k)), c ? y(h, c) : e && y(h, e), () => {
+        var d, m;
+        if ((d = w.current) == null || d.destroy(), w.current = null, (m = R.current) == null || m.deactivate(), R.current = null, T.current) {
           try {
-            D.current.Destroy();
+            T.current.Destroy();
           } catch (g) {
             console.warn("Error destroying viewer:", g);
           }
-          D.current = null;
+          T.current = null;
         }
       };
-  }, [$, l, e, p, y, R, L, E, v]), K(() => {
-    !w.current || !F.current || (B ? (w.current.setEnabled(!1), F.current.activate()) : (F.current.deactivate(), w.current.setEnabled(!0), s.length > 0 && !U.current && w.current.selectHandles(s, [], A)));
-  }, [B, s, A]), K(() => {
+  }, [$, c, e, v, y, D, L, E, p]), K(() => {
+    !w.current || !R.current || (z ? (w.current.setEnabled(!1), R.current.activate()) : (R.current.deactivate(), w.current.setEnabled(!0), s.length > 0 && !U.current && w.current.selectHandles(s, [], H)));
+  }, [z, s, H]), K(() => {
     if (!w.current || Q || Y) return;
     const h = U.current;
     U.current = !1;
-    const u = o || [];
+    const d = o || [];
     if (s.length > 0) {
-      const m = s.length === 1, g = A && (m || !h);
-      w.current.selectHandles(s, u, g);
-    } else a && a.length > 0 ? w.current.highlightHandles(a) : w.current.selectHandles([], u, !1);
-  }, [s, o, a, Q, Y, A]), K(() => {
-    w.current && w.current.setValidHandles(G);
-  }, [G]);
+      const m = s.length === 1, g = H && (m || !h);
+      w.current.selectHandles(s, d, g);
+    } else a && a.length > 0 ? w.current.highlightHandles(a) : w.current.selectHandles([], d, !1);
+  }, [s, o, a, Q, Y, H]), K(() => {
+    w.current && w.current.setValidHandles(k), R.current && R.current.setValidHandles(k);
+  }, [k, u]);
   const O = J(() => {
-    var u;
-    const h = !B;
-    z(h), (u = v.current) == null || u.call(v, h);
-  }, [B, v]), Z = J(() => {
-    const h = D.current;
+    var d;
+    const h = !z;
+    G(h), (d = p.current) == null || d.call(p, h);
+  }, [z, p]), Z = J(() => {
+    const h = T.current;
     if (!h) return;
-    const u = h.GetBounds();
-    if (u) {
+    const d = h.GetBounds();
+    if (d) {
       const m = h.GetOrigin();
       h.FitView(
-        u.minX - m.x,
-        u.maxX - m.x,
-        u.minY - m.y,
-        u.maxY - m.y,
+        d.minX - m.x,
+        d.maxX - m.x,
+        d.minY - m.y,
+        d.maxY - m.y,
         0.1
       ), h.Render();
     }
   }, []), re = J(() => {
-    var h, u;
-    z(!1), (h = v.current) == null || h.call(v, !1), w.current && w.current.clearHighlights(), F.current && (F.current.clearCompletedPolygon(), F.current.clearInProgressPolygon()), U.current = !1, (u = E.current) == null || u.call(E, [], { isReset: !0 }), Z();
-  }, [Z, E, v]), _ = J(() => {
-    const h = D.current;
+    var h, d;
+    G(!1), (h = p.current) == null || h.call(p, !1), w.current && w.current.clearHighlights(), R.current && (R.current.clearCompletedPolygon(), R.current.clearInProgressPolygon()), U.current = !1, (d = E.current) == null || d.call(E, [], { isReset: !0 }), Z();
+  }, [Z, E, p]), _ = J(() => {
+    const h = T.current;
     if (!h) return;
-    const u = h.GetCamera();
-    u.zoom *= 1.25, u.updateProjectionMatrix(), h.Render();
+    const d = h.GetCamera();
+    d.zoom *= 1.25, d.updateProjectionMatrix(), h.Render();
   }, []), X = J(() => {
-    const h = D.current;
+    const h = T.current;
     if (!h) return;
-    const u = h.GetCamera();
-    u.zoom *= 0.8, u.updateProjectionMatrix(), h.Render();
+    const d = h.GetCamera();
+    d.zoom *= 0.8, d.updateProjectionMatrix(), h.Render();
   }, []);
   return /* @__PURE__ */ b.jsx("div", { className: `dxf-viewer-wrapper ${i ?? ""}`, children: /* @__PURE__ */ b.jsx("div", { className: "dxf-main-content", children: /* @__PURE__ */ b.jsxs("div", { className: "dxf-viewer-container", children: [
     /* @__PURE__ */ b.jsx(
@@ -1261,7 +1289,7 @@ function rt({
     ),
     Q && /* @__PURE__ */ b.jsxs("div", { className: "dxf-loading-overlay", children: [
       /* @__PURE__ */ b.jsx("div", { className: "dxf-loading-spinner" }),
-      /* @__PURE__ */ b.jsx("div", { className: "dxf-loading-progress", children: le })
+      /* @__PURE__ */ b.jsx("div", { className: "dxf-loading-progress", children: ce })
     ] }),
     Y && /* @__PURE__ */ b.jsxs("div", { className: "dxf-error-overlay", children: [
       /* @__PURE__ */ b.jsxs("svg", { className: "dxf-error-icon", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: [
@@ -1276,7 +1304,7 @@ function rt({
       L && /* @__PURE__ */ b.jsx(
         he,
         {
-          active: B,
+          active: z,
           onClick: O,
           title: "Polygon Selection Tool",
           children: /* @__PURE__ */ b.jsx(Qe, { size: 18 })
@@ -1290,10 +1318,10 @@ function rt({
 }
 export {
   rt as DxfViewer,
-  Be as EntityInteraction,
+  ze as EntityInteraction,
   Xe as PolygonSelectionTool,
   we as getNDC,
   Oe as getSafeObjectBounds,
-  Ae as getSafeObjectsBounds,
-  Ie as unprojectToPlane
+  Ie as getSafeObjectsBounds,
+  Ae as unprojectToPlane
 };

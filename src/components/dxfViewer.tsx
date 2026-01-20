@@ -361,6 +361,11 @@ export function DxfViewer({
          isPolygonSelectionRef.current = false;
          onSelectionChangeRef.current?.([handle]);
       });
+      
+      // Set initial valid handles immediately after creation
+      if (validHandlesForInteraction) {
+        entityInteractionRef.current.setValidHandles(validHandlesForInteraction);
+      }
     }
     
     // Init polygon tool (if enabled)
@@ -378,6 +383,11 @@ export function DxfViewer({
           onPolygonModeChangeRef.current?.(false);
         }
       );
+      
+      // Set initial valid handles immediately after creation
+      if (validHandlesForInteraction) {
+        polygonToolRef.current.setValidHandles(validHandlesForInteraction);
+      }
     }
 
     if (file) {
@@ -455,7 +465,11 @@ export function DxfViewer({
     if (entityInteractionRef.current) {
       entityInteractionRef.current.setValidHandles(validHandlesForInteraction);
     }
-  }, [validHandlesForInteraction]);
+    // Also update polygon tool's valid handles
+    if (polygonToolRef.current) {
+      polygonToolRef.current.setValidHandles(validHandlesForInteraction);
+    }
+  }, [validHandlesForInteraction, interactiveHandles]);
 
   // Toolbar actions
   const handleTogglePolygonMode = useCallback(() => {

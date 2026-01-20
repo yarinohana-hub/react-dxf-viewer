@@ -20,11 +20,22 @@ export declare class PolygonSelectionTool {
     private isHoveringNearStart;
     private onComplete;
     private onCancel;
+    private validHandles;
     private _boundOnPointerDown;
     private _boundOnPointerMove;
     private _boundOnKeyDown;
     private _boundOnDblClick;
     constructor(viewer: DxfViewer, onComplete: (handles: string[]) => void, onCancel: () => void);
+    /**
+     * Set the valid handles that can be selected by polygon selection.
+     * If null/undefined or empty array is passed, nothing will be selectable.
+     * @param handles Array of valid handle strings, or null/undefined
+     */
+    setValidHandles(handles: string[] | null | undefined): void;
+    /**
+     * Check if a handle is in the valid handles list
+     */
+    private isHandleValid;
     activate(): void;
     deactivate(): void;
     clearCompletedPolygon(): void;
